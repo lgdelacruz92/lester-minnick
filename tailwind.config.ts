@@ -16,5 +16,6 @@ const config: Config = {
     },
   },
   plugins: [],
+  // plugins: [addVariablesForColors],
 };
 export default config;
