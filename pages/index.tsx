@@ -19,11 +19,11 @@ export default function Home() {
     >
       <Image
         onMouseMove={handleMouseMove}
-        height={100}
-        width={100}
+        height={384}
+        width={384}
         src={SelfImage.src}
         alt="Self"
-        className="object-cover !m-0 !p-0 object-top rounded-full h-14 w-14 border-2 group-hover:scale-105 group-hover:z-30 border-white  relative transition duration-500"
+        className="relative !m-0 max-h-96 min-h-14 min-w-14 max-w-96 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"
       />
     </main>
   );
