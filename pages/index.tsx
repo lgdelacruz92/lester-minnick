@@ -23,7 +23,7 @@ export default function Home() {
         width={384}
         src={SelfImage.src}
         alt="Self"
-        className="relative !m-0 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105 sm:h-56 sm:w-56 md:h-96 md:w-96"
+        className="relative !m-0 h-44 w-44 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105 sm:h-96 sm:w-96"
       />
     </main>
   );
