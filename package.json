@@ -10,7 +10,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coreui/coreui": "^5.1.0",
+    "@coreui/react": "^5.2.0",
     "@coreui/react-chartjs": "^3.0.0",
+    "@coreui/utils": "^2.0.2",
+    "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.12",
