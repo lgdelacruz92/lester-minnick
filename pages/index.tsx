@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import ProfilePhoto from "./home/profile-photo";
+import Skills from "./home/skills";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,6 +10,7 @@ export default function Home() {
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
       <ProfilePhoto />
+      <Skills />
     </main>
   );
 }
