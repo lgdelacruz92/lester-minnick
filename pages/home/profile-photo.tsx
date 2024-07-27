@@ -1,6 +1,8 @@
 import Image from "next/image";
 
 import SelfImage from "@/public/images/self.jpg";
+import { Meteors } from "@/components/ui/meteors";
+import { GlareCard } from "@/components/ui/glare-card";
 
 const SelfData = {
   name: "Lester Minnick",
@@ -9,11 +11,11 @@ const SelfData = {
 
 export default function ProfilePhoto() {
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex items-center text-base font-bold text-black dark:text-white">
+    <GlareCard className="flex flex-col items-center p-4">
+      <div className="flex items-center text-base font-bold text-white">
         <span className="w-full text-center">{SelfData.name}</span>
       </div>
-      <div className="mb-4 flex text-xs text-black dark:text-white">
+      <div className="mb-4 flex text-xs text-white">
         <span className="w-full text-center">{SelfData.title}</span>
       </div>
       <Image
@@ -21,8 +23,9 @@ export default function ProfilePhoto() {
         width={384}
         src={SelfImage.src}
         alt="Self"
-        className="relative !m-0 h-44 w-44 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105 sm:h-96 sm:w-96"
+        className="relative !m-0 h-44 w-44 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105 sm:size-64"
       />
-    </div>
+      <Meteors number={20} />
+    </GlareCard>
   );
 }
