@@ -38,7 +38,7 @@ export default function ExpandableCardDemo() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-10 h-full w-full bg-black/20"
+            className="test fixed inset-0 z-10 h-full w-full bg-black/20"
           />
         )}
       </AnimatePresence>
