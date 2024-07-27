@@ -53,25 +53,11 @@ export default function Skills() {
   const ref = useRef();
 
   return (
-    <div>
-      <MobileBlock>
-        <p>This is visible on mobile devices</p>
-      </MobileBlock>
-      <DesktopBlock>
-        <GlareCard className="relative p-4">
-          <div className="flex items-center text-base font-bold text-white">
-            <span className="w-full text-center">Skills</span>
-          </div>
-          <CChart
-            type="radar"
-            ref={ref}
-            data={data}
-            width={100}
-            height={50}
-            options={options}
-          />
-        </GlareCard>
-      </DesktopBlock>
+    <div className="flex flex-col items-center rounded-md p-4">
+      <div className="flex items-center text-base font-bold text-white">
+        <span className="w-full text-center">Skills</span>
+      </div>
+      <CChart type="radar" ref={ref} data={data} options={options} />
     </div>
   );
 }
