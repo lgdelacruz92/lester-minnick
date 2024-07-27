@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import SelfImage from "@/public/images/self.jpg";
-import { Meteors } from "@/components/ui/meteors";
 
 const SelfData = {
   name: "Lester Minnick",
@@ -24,7 +23,6 @@ export default function ProfilePhoto() {
         alt="Self"
         className="relative !m-0 h-44 w-44 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"
       />
-      <Meteors number={20} />
     </div>
   );
 }
