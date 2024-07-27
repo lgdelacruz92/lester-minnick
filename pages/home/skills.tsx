@@ -4,6 +4,8 @@ import { CChart } from "@coreui/react-chartjs";
 import { ChartOptions } from "chart.js";
 import { getStyle } from "@coreui/utils";
 import { GlareCard } from "@/components/ui/glare-card";
+import MobileBlock from "@/components/layouts/mobile-block";
+import DesktopBlock from "@/components/layouts/desktop-block";
 
 const data = {
   labels: [
@@ -51,25 +53,11 @@ export default function Skills() {
   const ref = useRef();
 
   return (
-    <div>
-      <div className="block sm:hidden">
-        <p>This is visible on mobile devices</p>
+    <div className="flex flex-col items-center rounded-md p-4">
+      <div className="flex items-center text-base font-bold text-white">
+        <span className="w-full text-center">Skills</span>
       </div>
-      <div className="hidden sm:block">
-        <GlareCard className="relative p-4">
-          <div className="flex items-center text-base font-bold text-white">
-            <span className="w-full text-center">Skills</span>
-          </div>
-          <CChart
-            type="radar"
-            ref={ref}
-            data={data}
-            width={100}
-            height={50}
-            options={options}
-          />
-        </GlareCard>
-      </div>
+      <CChart type="radar" ref={ref} data={data} options={options} />
     </div>
   );
 }
