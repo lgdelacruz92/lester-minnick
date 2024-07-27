@@ -7,33 +7,23 @@ import { GlareCard } from "@/components/ui/glare-card";
 
 const data = {
   labels: [
-    "Eating",
-    "Drinking",
-    "Sleeping",
-    "Designing",
-    "Coding",
-    "Cycling",
-    "Running",
+    "Typescript",
+    "Problem Solving",
+    "HTML/CSS",
+    "AI Tech",
+    "Backend",
+    "Cloud",
+    "SQL",
   ],
   datasets: [
     {
-      label: "My First dataset",
-      backgroundColor: "rgba(220, 220, 220, 0.2)",
-      borderColor: "rgba(220, 220, 220, 1)",
-      pointBackgroundColor: "rgba(220, 220, 220, 1)",
-      pointBorderColor: "#fff",
-      pointHighlightFill: "#fff",
-      pointHighlightStroke: "rgba(220, 220, 220, 1)",
-      data: [65, 59, 90, 81, 56, 55, 40],
-    },
-    {
-      label: "My Second dataset",
+      label: "Technical Strengths",
       backgroundColor: "rgba(151, 187, 205, 0.2)",
-      borderColor: "rgba(151, 187, 205, 1)",
-      pointBackgroundColor: "rgba(151, 187, 205, 1)",
-      pointBorderColor: "#fff",
-      pointHighlightFill: "#fff",
-      pointHighlightStroke: "rgba(151, 187, 205, 1)",
+      borderColor: getStyle("--cui-success"),
+      pointBackgroundColor: getStyle("--cui-cyan"),
+      pointBorderColor: getStyle("--cui-success"),
+      pointHighlightFill: getStyle("--cui-success"),
+      pointHighlightStroke: getStyle("--cui-success"),
       data: [28, 48, 40, 19, 96, 27, 100],
     },
   ],
@@ -43,17 +33,14 @@ const options: ChartOptions = {
   plugins: {
     legend: {
       labels: {
-        color: getStyle("--cui-body-color"),
+        color: "#fff",
       },
     },
   },
   scales: {
     r: {
-      grid: {
-        color: getStyle("--cui-border-color-translucent"),
-      },
-      ticks: {
-        color: getStyle("--cui-body-color"),
+      pointLabels: {
+        color: "#fff",
       },
     },
   },
@@ -67,7 +54,14 @@ export default function Skills() {
       <div className="flex items-center text-base font-bold text-white">
         <span className="w-full text-center">Skills</span>
       </div>
-      <CChart type="radar" ref={ref} data={data} width={150} height={75} />
+      <CChart
+        type="radar"
+        ref={ref}
+        data={data}
+        width={100}
+        height={50}
+        options={options}
+      />
     </GlareCard>
   );
 }
