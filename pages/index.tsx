@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import ProfilePhoto from "./home/profile-photo";
 import Skills from "./home/skills";
 import { Meteors } from "@/components/ui/meteors";
+import WorkExperience from "./home/work-experience";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +17,9 @@ export default function Home() {
         </div>
         <div className="w-full rounded-md bg-zinc-900">
           <Skills />
+        </div>
+        <div className="w-full rounded-md bg-zinc-900">
+          <WorkExperience />
         </div>
         <Meteors number={10} />
       </div>
