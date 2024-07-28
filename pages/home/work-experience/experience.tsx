@@ -20,6 +20,9 @@ export default function Experience() {
         </div>
         <div className="text-left text-zinc-400">Derivco</div>
         <div className="text-left text-zinc-400">June 2023 - Present</div>
+        <button className="rounded-full bg-cyan-600 px-4 text-white">
+          Details
+        </button>
       </div>
     </div>
   );
