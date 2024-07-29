@@ -5,31 +5,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@/components/common/close-icon";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { ExperienceDetailsData } from "./types";
 
-type ExperienceDetailsData = {
-  title: string;
-  id: number;
-  description: string[];
-  companyName: string;
-  duration: string;
-  src: string;
-};
-
-const sampleExperienceDetailsData: ExperienceDetailsData = {
-  title: "Full Stack Software Engineer",
-  id: 123,
-  description: [
-    "Python, and ML tools",
-    "Contributing to banking system app VueJS, HTML, CSS, Typescript, Docker, Kubernetes, Azure, Cypress, and Playwright",
-    "Created a file converter to convert our tests written in Cypress into Playwright tests saving devs hundreds of hours of manual conversion",
-    "Serviced .NET application for external customers",
-  ],
-  companyName: "Derivco",
-  duration: "June 2023 - Present",
-  src: "src",
-};
-
-export default function Experience() {
+export default function Experience({
+  experienceData,
+}: {
+  experienceData: ExperienceDetailsData;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<null | ExperienceDetailsData>(null);
 
@@ -62,17 +44,15 @@ export default function Experience() {
       />
       <div className="ml-4 grow">
         <div className="mb-2 text-left uppercase text-white">
-          {sampleExperienceDetailsData.title}
+          {experienceData.title}
         </div>
         <div className="text-left text-zinc-400">
-          {sampleExperienceDetailsData.companyName}
+          {experienceData.companyName}
         </div>
-        <div className="text-left text-zinc-400">
-          {sampleExperienceDetailsData.duration}
-        </div>
+        <div className="text-left text-zinc-400">{experienceData.duration}</div>
         <button
           className="rounded-full bg-cyan-600 px-4 text-white"
-          onClick={() => setActive(sampleExperienceDetailsData)}
+          onClick={() => setActive(experienceData)}
         >
           Details
         </button>
