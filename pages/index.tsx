@@ -21,7 +21,6 @@ export default function Home() {
         <div className="w-full rounded-md bg-zinc-900">
           <WorkExperience />
         </div>
-        <Meteors number={10} />
       </div>
     </main>
   );
