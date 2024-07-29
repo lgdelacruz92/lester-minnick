@@ -6,7 +6,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import CloseIcon from "@/components/common/close-icon";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
-type DetailsData = {
+type ExperienceDetailsData = {
   title: string;
   id: number;
   description: string;
@@ -15,16 +15,18 @@ type DetailsData = {
   src: string;
 };
 
+const sampleExperienceDetailsData: ExperienceDetailsData = {
+  title: "Full Stack Software Engineer",
+  id: 123,
+  description: "description",
+  ctaText: "ctaText",
+  ctaLink: "ctaLink",
+  src: "src",
+};
+
 export default function Experience() {
   const ref = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState<null | DetailsData>({
-    title: "Software",
-    id: 123,
-    description: "description",
-    ctaText: "ctaText",
-    ctaLink: "ctaLink",
-    src: "src",
-  });
+  const [active, setActive] = useState<null | ExperienceDetailsData>(null);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -46,33 +48,22 @@ export default function Experience() {
   useOutsideClick(ref, () => setActive(null));
   return (
     <div className="flex w-full">
-      <div>
-        <Image
-          src={DerivcoImage.src}
-          width={100}
-          height={100}
-          alt="derivco image"
-          className="rounded-md"
-        />
-      </div>
+      <Image
+        src={DerivcoImage.src}
+        width={100}
+        height={100}
+        alt="derivco image"
+        className="rounded"
+      />
       <div className="ml-4 grow">
         <div className="mb-2 text-center uppercase text-white">
-          Full Stack Software Engineer
+          {sampleExperienceDetailsData.title}
         </div>
         <div className="text-left text-zinc-400">Derivco</div>
         <div className="text-left text-zinc-400">June 2023 - Present</div>
         <button
           className="rounded-full bg-cyan-600 px-4 text-white"
-          onClick={() =>
-            setActive({
-              title: "Software engineer",
-              id: 123,
-              description: "description",
-              ctaText: "ctaText",
-              ctaLink: "ctaLink",
-              src: "src",
-            })
-          }
+          onClick={() => setActive(sampleExperienceDetailsData)}
         >
           Details
         </button>
@@ -83,7 +74,7 @@ export default function Experience() {
             <motion.div
               layoutId={`card-${active.title}`}
               ref={ref}
-              className="relative flex h-full w-full max-w-[500px] flex-col overflow-hidden bg-white sm:rounded-3xl md:h-fit md:max-h-[90%] dark:bg-neutral-900"
+              className="relative flex h-full w-full max-w-[500px] flex-col overflow-hidden bg-zinc-700 sm:rounded-3xl md:h-fit md:max-h-[90%]"
               initial={{
                 opacity: 0,
                 width: 0,
@@ -116,20 +107,25 @@ export default function Experience() {
                     duration: 0.05,
                   },
                 }}
-                className="close-button absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-black"
+                className="close-button absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full text-white"
                 onClick={() => setActive(null)}
               >
                 <CloseIcon />
               </motion.button>
-              <motion.div layoutId={`image-${active.title}`}>
-                <Image
-                  priority
-                  width={200}
-                  height={200}
-                  src={DerivcoImage.src}
-                  alt={active.title}
-                  className="h-80 w-full object-cover object-top sm:rounded-tl-lg sm:rounded-tr-lg lg:h-80"
-                />
+              <motion.div
+                layoutId={`image-${active.title}`}
+                className="radial-gradient-white flex justify-center p-4"
+              >
+                <div className="overflow-hidden rounded-full bg-white">
+                  <Image
+                    priority
+                    width={200}
+                    height={200}
+                    src={DerivcoImage.src}
+                    alt={active.title}
+                    className="h-32 w-32 -translate-x-[4px] object-cover object-top"
+                  />
+                </div>
               </motion.div>
 
               <div>
