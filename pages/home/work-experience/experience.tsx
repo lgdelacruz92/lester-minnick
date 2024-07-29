@@ -10,6 +10,8 @@ type ExperienceDetailsData = {
   title: string;
   id: number;
   description: string[];
+  companyName: string;
+  duration: string;
   src: string;
 };
 
@@ -22,6 +24,8 @@ const sampleExperienceDetailsData: ExperienceDetailsData = {
     "Created a file converter to convert our tests written in Cypress into Playwright tests saving devs hundreds of hours of manual conversion",
     "Serviced .NET application for external customers",
   ],
+  companyName: "Derivco",
+  duration: "June 2023 - Present",
   src: "src",
 };
 
@@ -57,11 +61,15 @@ export default function Experience() {
         className="rounded"
       />
       <div className="ml-4 grow">
-        <div className="mb-2 text-center uppercase text-white">
+        <div className="mb-2 text-left uppercase text-white">
           {sampleExperienceDetailsData.title}
         </div>
-        <div className="text-left text-zinc-400">Derivco</div>
-        <div className="text-left text-zinc-400">June 2023 - Present</div>
+        <div className="text-left text-zinc-400">
+          {sampleExperienceDetailsData.companyName}
+        </div>
+        <div className="text-left text-zinc-400">
+          {sampleExperienceDetailsData.duration}
+        </div>
         <button
           className="rounded-full bg-cyan-600 px-4 text-white"
           onClick={() => setActive(sampleExperienceDetailsData)}
@@ -129,22 +137,18 @@ export default function Experience() {
                 </div>
               </motion.div>
 
-              <div>
-                <div className="p-4">
-                  <motion.h3
-                    layoutId={`title-${active.title}`}
-                    className="font-bold text-zinc-100"
-                  >
-                    {active.title}
-                  </motion.h3>
-                  <div className="max-h-[250px] overflow-y-scroll text-neutral-600 text-zinc-300">
-                    <ul className="list-disc">
-                      {active.description.map((d, i) => {
-                        return <li key={`description-${i}`}>{d}</li>;
-                      })}
-                    </ul>
-                  </div>
-                </div>
+              <motion.h3
+                layoutId={`title-${active.title}`}
+                className="p-4 pb-0 font-bold text-zinc-100"
+              >
+                {active.title}
+              </motion.h3>
+              <div className="max-h-[250px] overflow-y-scroll text-neutral-600 text-zinc-300">
+                <ul className="list-disc">
+                  {active.description.map((d, i) => {
+                    return <li key={`description-${i}`}>{d}</li>;
+                  })}
+                </ul>
               </div>
             </motion.div>
           </div>
