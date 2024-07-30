@@ -1,6 +1,5 @@
 // logo, date, title, company
 import Image from "next/image";
-import DerivcoImage from "@/public/images/derivco.jpeg";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@/components/common/close-icon";
@@ -34,9 +33,12 @@ export default function Experience({
 
   useOutsideClick(ref, () => setActive(null));
   return (
-    <div className="flex w-full">
+    <div
+      className="flex w-full p-4 hover:bg-zinc-700"
+      onClick={() => setActive(experienceData)}
+    >
       <Image
-        src={DerivcoImage.src}
+        src={experienceData.src}
         width={100}
         height={100}
         alt="derivco image"
@@ -52,7 +54,9 @@ export default function Experience({
         <div className="text-left text-zinc-400">{experienceData.duration}</div>
         <button
           className="rounded-full bg-cyan-600 px-4 text-white"
-          onClick={() => setActive(experienceData)}
+          onClick={() => {
+            setActive(experienceData);
+          }}
         >
           Details
         </button>
@@ -97,7 +101,11 @@ export default function Experience({
                   },
                 }}
                 className="close-button absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full text-white"
-                onClick={() => setActive(null)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setActive(null);
+                }}
               >
                 <CloseIcon />
               </motion.button>
@@ -110,7 +118,7 @@ export default function Experience({
                     priority
                     width={200}
                     height={200}
-                    src={DerivcoImage.src}
+                    src={experienceData.src}
                     alt={active.title}
                     className="h-32 w-32 -translate-x-[4px] object-cover object-top"
                   />
