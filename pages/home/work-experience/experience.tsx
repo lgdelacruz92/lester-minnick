@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@/components/common/close-icon";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { ExperienceDetailsData } from "./types";
+import ChevronDown from "@/components/common/chevron-down";
 
 const experienceData: ExperienceDetailsData = {
   title: "Full Stack Software Engineer",
@@ -89,11 +90,11 @@ export default function Experience() {
             className="rounded"
           />
           <div className="ml-4 grow">
-            <div className="mb-2 text-left uppercase text-white">{d.title}</div>
-            <div className="text-left text-zinc-400">{d.companyName}</div>
-            <div className="text-left text-zinc-400">{d.duration}</div>
+            <div className="mb-2 uppercase text-white">{d.title}</div>
+            <div className="text-tprimary text-left">{d.companyName}</div>
+            <div className="text-tprimary text-left">{d.duration}</div>
             <button
-              className="rounded-full bg-cyan-600 px-4 text-white"
+              className="bg-tprimary text-primary rounded-full px-4"
               onClick={() => {
                 setActive(d);
               }}
@@ -107,9 +108,9 @@ export default function Experience() {
         {active && typeof active === "object" ? (
           <div className="fixed inset-0 z-[100] grid place-items-center">
             <motion.div
-              layoutId={`card-${active.title}`}
+              layoutId={`card-${active.title}-${active.id}`}
               ref={ref}
-              className="relative flex h-full w-full max-w-[500px] flex-col overflow-hidden rounded bg-zinc-700 shadow-2xl"
+              className="relative flex h-full w-full max-w-[500px] flex-col overflow-hidden rounded shadow-2xl"
               initial={{
                 opacity: 0,
                 width: 0,
@@ -152,7 +153,7 @@ export default function Experience() {
                 <CloseIcon />
               </motion.button>
               <motion.div
-                layoutId={`image-${active.title}`}
+                layoutId={`image-${active.title}-${active.id}`}
                 className="radial-gradient-white flex justify-center p-4"
               >
                 <div className="overflow-hidden rounded-full bg-white">
@@ -168,17 +169,22 @@ export default function Experience() {
               </motion.div>
 
               <motion.h3
-                layoutId={`title-${active.title}`}
-                className="p-4 pb-0 font-bold text-zinc-100"
+                layoutId={`title-${active.title}-${active.id}`}
+                className="bg-mid text-tprimary m-0 p-4 pb-2 font-bold"
               >
                 {active.title}
               </motion.h3>
-              <div className="max-h-[250px] overflow-y-scroll text-neutral-600 text-zinc-300">
+              <div className="bg-mid text-tprimary relative max-h-[250px] overflow-y-scroll p-2 shadow-inner shadow-xl">
                 <ul className="list-disc">
-                  {active.description.map((d, i) => {
-                    return <li key={`description-${i}`}>{d}</li>;
+                  {active.description.map((desc, i) => {
+                    return <li key={`description-${i}`}>{desc}</li>;
                   })}
                 </ul>
+                {/* <ChevronDown
+                  className="absolute bottom-0 left-[50%] text-white"
+                  width={24}
+                  height={24}
+                /> */}
               </div>
             </motion.div>
           </div>
