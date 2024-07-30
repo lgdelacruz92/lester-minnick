@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .radial-gradient-white {
     background: radial-gradient(white, #6482AD);
+}
+
+.white-top-down-gradient {
+    -webkit-mask: linear-gradient(180deg, #fff, #fff, transparent);
+    mask: linear-gradient(180deg, #fff, #fff, transparent);
 }

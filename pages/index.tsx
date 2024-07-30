@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import ProfilePhoto from "./home/profile-photo";
 import Skills from "./home/skills";
-import WorkExperience from "./home/work-experience";
+import WorkExperience from "./home/workexperience";
 
 const inter = Inter({ subsets: ["latin"] });
 
