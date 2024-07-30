@@ -173,12 +173,13 @@ export default function Experience() {
               >
                 {active.title}
               </motion.h3>
-              <div className="bg-mid text-tprimary relative max-h-[250px] overflow-y-scroll p-2 shadow-inner shadow-xl">
+              <div className="bg-mid text-tprimary relative max-h-[250px] overflow-y-scroll shadow-inner">
                 <ul className="list-disc">
                   {active.description.map((desc, i) => {
                     return <li key={`description-${i}`}>{desc}</li>;
                   })}
                 </ul>
+                <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-r from-cyan-500"></div>
                 {/* <ChevronDown
                   className="absolute bottom-0 left-[50%] text-white"
                   width={24}
