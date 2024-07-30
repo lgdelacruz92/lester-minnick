@@ -4,8 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@/components/common/close-icon";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import { ExperienceDetailsData } from "./types";
-import ChevronDown from "@/components/common/chevron-down";
+import { ExperienceDetailsData } from "../../../lib/types";
 
 const experienceData: ExperienceDetailsData = {
   title: "Full Stack Software Engineer",

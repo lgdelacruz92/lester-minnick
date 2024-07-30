@@ -1,5 +1,4 @@
 import Experience from "./experience";
-import { ExperienceDetailsData } from "./types";
 
 export default function WorkExperience() {
   return (
