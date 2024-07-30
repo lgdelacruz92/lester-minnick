@@ -11,13 +11,13 @@ export default function Home() {
       className={`flex w-full flex-col items-center justify-between p-24 ${inter.className} bg-background`}
     >
       <div className="flex flex-col items-center space-y-4">
-        <div className="bg-mid w-full rounded-md shadow-xl">
+        <div className="w-full rounded-md bg-mid shadow-xl">
           <ProfilePhoto />
         </div>
-        <div className="bg-mid w-full rounded-md shadow-xl">
+        <div className="w-full rounded-md bg-mid shadow-xl">
           <Skills />
         </div>
-        <div className="bg-mid w-full rounded-md shadow-xl">
+        <div className="w-full rounded-md bg-mid shadow-xl">
           <WorkExperience />
         </div>
       </div>
