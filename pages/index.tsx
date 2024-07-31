@@ -9,6 +9,8 @@ const WorkExperience = dynamic(() => import("./home/workexperience"), {
   ssr: false,
 });
 
+const References = dynamic(() => import("./home/references"));
+
 export default function Home() {
   return (
     <main
@@ -23,6 +25,10 @@ export default function Home() {
         </div>
         <div className="w-full rounded-md bg-mid shadow-xl">
           <WorkExperience />
+        </div>
+
+        <div className="w-full rounded-md bg-mid shadow-xl">
+          <References />
         </div>
       </div>
     </main>
