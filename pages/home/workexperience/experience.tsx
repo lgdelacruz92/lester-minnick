@@ -1,10 +1,12 @@
 // logo, date, title, company
+"use client";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@/components/common/close-icon";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { ExperienceDetailsData } from "../../../lib/types";
+import { useBreakpoints } from "@/hooks/useBreakpoints";
 
 const experienceData: ExperienceDetailsData = {
   title: "Full Stack Software Engineer",
@@ -47,7 +49,38 @@ const experienceData3: ExperienceDetailsData = {
   src: "/images/zybooks.jpeg",
 };
 
-const data = [experienceData, experienceData2, experienceData3];
+const experienceData4: ExperienceDetailsData = {
+  title: "Sole Full Stack Developer",
+  id: 126,
+  description: [
+    "Developed a web application from scratch using React, NextJS, Firebase, HTML/CSS, JavaScript, Docker, CircleCI, and TDD.",
+    "Worked with .NET Core Web API and Azure ecosystem (hosting, api, storage, and cloud functions).",
+    "Worked with mobile platforms, gaining valuable experience in creating user interfaces and building scalable backend systems.",
+  ],
+  companyName: "Bloomtrac (Merged with Curate.Co)",
+  duration: "July 2018 - Jan 2020",
+  src: "/images/bloomtrac.jpg",
+};
+
+const experienceData5: ExperienceDetailsData = {
+  title: "Software Engineer",
+  id: 127,
+  description: [
+    "Worked on a company that produces surgical devices using C++, VS 2013/2017, Git, GoogleTest, XML, and Python.",
+    "Provided solutions for critical software problems and produced high-quality code complete with tests",
+  ],
+  companyName: "TrueVision (acquired by Alcon)",
+  duration: "April 2017 - May 2018",
+  src: "/images/alcon.jpeg",
+};
+
+const data = [
+  experienceData,
+  experienceData2,
+  experienceData3,
+  experienceData4,
+  experienceData5,
+];
 
 export default function Experience() {
   const ref = useRef<HTMLDivElement>(null);
@@ -71,6 +104,9 @@ export default function Experience() {
   }, [active]);
 
   useOutsideClick(ref, () => setActive(null));
+
+  const { isXs } = useBreakpoints();
+
   return (
     <>
       {data.map((d) => (
@@ -117,8 +153,8 @@ export default function Experience() {
               }}
               animate={{
                 opacity: 1,
-                width: 400,
-                height: 400,
+                width: isXs ? "100%" : 500,
+                height: isXs ? 850 : 500,
               }}
               exit={{
                 opacity: 0,
@@ -162,7 +198,7 @@ export default function Experience() {
                     height={200}
                     src={active.src}
                     alt={active.title}
-                    className="h-32 w-32 -translate-x-[4px] object-cover object-top"
+                    className="h-32 w-32 object-cover object-top"
                   />
                 </div>
               </motion.div>
@@ -173,7 +209,7 @@ export default function Experience() {
               >
                 {active.title}
               </motion.h3>
-              <div className="white-top-down-gradient relative max-h-[250px] overflow-y-scroll bg-mid text-tprimary shadow-inner">
+              <div className="white-top-down-gradient sm:h-full relative grow overflow-y-scroll bg-mid pt-4 text-tprimary shadow-inner">
                 <ul className="list-disc">
                   {active.description.map((desc, i) => {
                     return <li key={`description-${i}`}>{desc}</li>;
