@@ -1,9 +1,13 @@
 import { Inter } from "next/font/google";
 import ProfilePhoto from "./home/profile-photo";
 import Skills from "./home/skills";
-import WorkExperience from "./home/workexperience";
+import dynamic from "next/dynamic";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const WorkExperience = dynamic(() => import("./home/workexperience"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (

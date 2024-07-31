@@ -1,10 +1,12 @@
 // logo, date, title, company
+"use client";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@/components/common/close-icon";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { ExperienceDetailsData } from "../../../lib/types";
+import { useBreakpoints } from "@/hooks/useBreakpoints";
 
 const experienceData: ExperienceDetailsData = {
   title: "Full Stack Software Engineer",
@@ -71,6 +73,9 @@ export default function Experience() {
   }, [active]);
 
   useOutsideClick(ref, () => setActive(null));
+
+  const { isXs } = useBreakpoints();
+
   return (
     <>
       {data.map((d) => (
@@ -117,8 +122,8 @@ export default function Experience() {
               }}
               animate={{
                 opacity: 1,
-                width: 400,
-                height: 400,
+                width: isXs ? "100%" : 500,
+                height: isXs ? 850 : 500,
               }}
               exit={{
                 opacity: 0,

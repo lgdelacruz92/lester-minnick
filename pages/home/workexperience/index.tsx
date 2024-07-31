@@ -1,3 +1,4 @@
+"use client";
 import Experience from "./experience";
 
 export default function WorkExperience() {
