@@ -178,7 +178,7 @@ export default function Experience() {
               >
                 {active.title}
               </motion.h3>
-              <div className="white-top-down-gradient relative max-h-[250px] overflow-y-scroll bg-mid text-tprimary shadow-inner">
+              <div className="white-top-down-gradient sm:h-full relative grow overflow-y-scroll bg-mid pt-4 text-tprimary shadow-inner">
                 <ul className="list-disc">
                   {active.description.map((desc, i) => {
                     return <li key={`description-${i}`}>{desc}</li>;
