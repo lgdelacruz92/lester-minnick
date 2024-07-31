@@ -35,9 +35,9 @@ const DummyContent = () => {
 
 const data = [
   {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
-    src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    category: "Previous Manager",
+    title: "Jeffrey Eubanks",
+    src: "/images/jeff.jpeg",
     content: <DummyContent />,
   },
   {
@@ -83,7 +83,7 @@ export default function References() {
         <span className="w-full text-center">References</span>
       </div>
 
-      <div className="h-full w-full py-20">
+      <div className="h-full w-full">
         <Carousel items={cards} />
       </div>
     </div>

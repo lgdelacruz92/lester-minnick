@@ -92,7 +92,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     >
       <div className="relative w-full">
         <div
-          className="md:py-20 flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none]"
+          className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth [scrollbar-width:none]"
           ref={carouselRef}
           onScroll={checkScrollability}
         >
@@ -239,19 +239,19 @@ export const Card = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="bg-gray-100 dark:bg-neutral-900 md:h-[40rem] md:w-96 relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl"
+        className="relative z-10 mt-4 flex flex-col items-center justify-center overflow-hidden rounded bg-[rgb(89,120,162)] p-2 shadow-xl"
       >
-        <div className="from-black/50 via-transparent to-transparent pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b" />
-        <div className="relative z-40 p-8">
+        <div className="from-black/50 via-transparent to-transparent pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b"></div>
+        <div className="relative z-40">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-white md:text-base text-left font-sans text-sm font-medium"
+            className="text-white text-left text-center font-sans text-base font-light"
           >
             {card.category}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="text-white md:text-3xl mt-2 max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance]"
+            className="text-white font-sans[text-wrap:balance] mt-2 text-center text-lg font-bold"
           >
             {card.title}
           </motion.p>
@@ -259,8 +259,9 @@ export const Card = ({
         <BlurImage
           src={card.src}
           alt={card.title}
-          fill
-          className="absolute inset-0 z-10 object-cover"
+          width={64}
+          height={64}
+          className="inset-0 top-20 z-10 rounded-full object-cover"
         />
       </motion.button>
     </>

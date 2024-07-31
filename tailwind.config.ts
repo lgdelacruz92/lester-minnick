@@ -1,4 +1,5 @@
 import { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 const config: Config = {
   content: [
@@ -13,6 +14,7 @@ const config: Config = {
       background: "#7FA1C3",
       mid: "#6482AD",
       tprimary: "#F5EDED",
+      ...colors,
     },
     extend: {
       backgroundImage: {
