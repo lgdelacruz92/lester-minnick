@@ -13,6 +13,7 @@
     "@coreui/react": "^5.2.0",
     "@coreui/react-chartjs": "^3.0.0",
     "@coreui/utils": "^2.0.2",
+    "@tabler/icons-react": "^3.11.0",
     "bootstrap": "^5.3.3",
     "chart.js": "^4.4.3",
     "clsx": "^2.1.1",
