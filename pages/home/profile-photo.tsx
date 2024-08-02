@@ -12,17 +12,17 @@ const SelfData = {
 
 export default function ProfilePhoto() {
   return (
-    <div className="flex w-full flex-row items-start">
-      <div className="p-4">
+    <div className="flex w-full flex-row items-start p-4">
+      <div className="grow pr-4">
         <div className="text-center text-[2rem] font-bold text-white">
           {SelfData.title}
         </div>
-        <div className="mt-2 text-center text-[1.2rem] text-white">
+        <div className="mt-2 text-center text-[1rem] text-white">
           {SelfData.subtitle}
         </div>
       </div>
-      <div className="flex flex-col items-center p-4">
-        <div className="mb-2 text-[1.5rem] font-bold text-white">
+      <div className="flex flex-col items-center">
+        <div className="sm:text-[1.5rem] mb-2 text-center text-[1rem] font-bold text-white">
           {SelfData.name}
         </div>
         <Image
@@ -30,7 +30,7 @@ export default function ProfilePhoto() {
           width={384}
           src={SelfImage.src}
           alt="Self"
-          className="md:h-44 md:w-44 !m-0 h-24 w-24 rounded-full border-2 border-white object-cover object-top !p-0"
+          className="sm:h-40 sm:w-40 !m-0 h-[65px] w-[65px] rounded-full border-2 border-white object-cover object-top !p-0"
         />
         <div className="mt-4 flex w-full flex-row items-center justify-center space-x-4">
           <a href="https://linkedin.com/in/lgdelacruz">
