@@ -3,6 +3,7 @@ import Image from "next/image";
 import SelfImage from "@/public/images/self.jpg";
 import LinkedInIcon from "@/components/common/linked-in-icon";
 import GithubIcon from "@/components/common/github-icon";
+import DesktopBlock from "@/components/layouts/desktop-block";
 
 const SelfData = {
   name: "Lester Minnick",
@@ -20,6 +21,9 @@ export default function ProfilePhoto() {
         <div className="mt-2 text-center text-[1rem] text-white">
           {SelfData.subtitle}
         </div>
+        <DesktopBlock>
+          <div className="text-white">Hello</div>
+        </DesktopBlock>
       </div>
       <div className="flex flex-col items-center">
         <div className="sm:text-[1.5rem] mb-2 text-center text-[1rem] font-bold text-white">
