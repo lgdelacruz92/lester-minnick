@@ -13,7 +13,7 @@ const SelfData = {
 export default function ProfilePhoto() {
   return (
     <div className="flex w-full flex-row items-start">
-      <div className="max-w-[200px] p-4">
+      <div className="p-4">
         <div className="text-center text-[2rem] font-bold text-white">
           {SelfData.title}
         </div>
