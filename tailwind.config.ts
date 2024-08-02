@@ -1,5 +1,6 @@
 import { Config } from "tailwindcss";
 import colors from "tailwindcss/colors";
+import fontSize from "tailwindcss/";
 
 const config: Config = {
   content: [
@@ -37,9 +38,6 @@ const config: Config = {
           },
         },
       },
-    },
-    screens: {
-      mobile: "360px",
     },
   },
   plugins: [],
