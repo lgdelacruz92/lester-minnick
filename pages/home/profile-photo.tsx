@@ -42,7 +42,7 @@ function ExperiencePill({ src, name }: { src: string; name: string }) {
         alt={name}
         width="40"
         height="40"
-        className="rounded-full"
+        className="rounded-full border-2 shadow-lg"
       />
     </div>
   );
@@ -73,7 +73,7 @@ export default function ProfilePhoto() {
         </DesktopBlock>
       </div>
       <div className="flex flex-col items-center">
-        <div className="sm:text-[1.5rem] mb-2 text-center text-[1rem] font-bold text-white">
+        <div className="mb-2 text-center text-[1rem] font-bold text-white sm:text-[1.5rem]">
           {SelfData.name}
         </div>
         <Image
@@ -81,13 +81,19 @@ export default function ProfilePhoto() {
           width={384}
           src={SelfImage.src}
           alt="Self"
-          className="sm:h-40 sm:w-40 !m-0 h-[65px] w-[65px] rounded-full border-2 border-white object-cover object-top !p-0"
+          className="!m-0 h-[65px] w-[65px] rounded-full border-2 border-white object-cover object-top !p-0 sm:h-40 sm:w-40"
         />
         <div className="mt-4 flex w-full flex-row items-center justify-center space-x-4">
-          <a href="https://linkedin.com/in/lgdelacruz">
+          <a
+            href="https://linkedin.com/in/lgdelacruz"
+            className="rounded hover:border-2"
+          >
             <LinkedInIcon fill={"var(--cui-blue)"} />
           </a>
-          <a href="https://github.com/lgdelacruz92">
+          <a
+            href="https://github.com/lgdelacruz92"
+            className="rounded hover:border-2"
+          >
             <GithubIcon fill={"white"} />
           </a>
         </div>
