@@ -6,8 +6,22 @@ import MobileIcon from "../icons/mobile-icon";
 import EmailIcon from "../icons/email-icon";
 
 const backdropVariants = {
-  visible: { opacity: 1 },
-  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+      delay: 0.2,
+      ease: "easeIn",
+    },
+  },
+  hidden: {
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      delay: 0.2,
+      ease: "out",
+    },
+  },
 };
 
 interface ModalProps {
@@ -25,8 +39,8 @@ export default function Modal({ showModal, setShowModal }: ModalProps) {
       {showModal && (
         <motion.div
           variants={backdropVariants}
+          initial="hidden"
           animate="visible"
-          exit="opacity"
           ref={modalRef}
           id="modal-item-123"
           className="fixed left-0 top-0 h-full w-full bg-black/40"
