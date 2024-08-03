@@ -29,7 +29,9 @@ export default function Modal({ showModal, setShowModal }: ModalProps) {
           id="modal-item-123"
           className="fixed left-0 top-0 h-full w-full bg-black/40"
         >
-          <div className="bg-white">Hello world</div>
+          <div className="absolute left-[50%] top-[50%] translate-x-[-50%] bg-white">
+            Hello world
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

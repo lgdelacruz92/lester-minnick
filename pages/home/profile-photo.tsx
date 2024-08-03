@@ -81,7 +81,7 @@ export default function ProfilePhoto() {
             </div>
             <button
               onClick={() => setShowContacts(true)}
-              className="rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white"
+              className={`rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white ${showContacts ? "pointer-events-none" : ""}`}
             >
               Contacts
             </button>
