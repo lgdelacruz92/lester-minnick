@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import CloseIcon from "@/components/common/close-icon";
+import CloseIcon from "@/components/icons/close-icon";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { ExperienceDetailsData } from "../../../lib/types";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
@@ -112,7 +112,7 @@ export default function Experience() {
       {data.map((d) => (
         <div
           key={d.id}
-          className="hover:bg-zinc-700 flex w-full p-4"
+          className="flex w-full p-4 hover:bg-zinc-700"
           onClick={() => {
             setActive(d);
           }}
@@ -125,7 +125,7 @@ export default function Experience() {
             className="rounded"
           />
           <div className="ml-4 grow">
-            <div className="text-white mb-2 uppercase">{d.title}</div>
+            <div className="mb-2 uppercase text-white">{d.title}</div>
             <div className="text-left text-tprimary">{d.companyName}</div>
             <div className="text-left text-tprimary">{d.duration}</div>
             <button
@@ -178,7 +178,7 @@ export default function Experience() {
                     duration: 0.05,
                   },
                 }}
-                className="close-button text-white absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full"
+                className="close-button absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full text-white"
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -191,7 +191,7 @@ export default function Experience() {
                 layoutId={`image-${active.title}-${active.id}`}
                 className="radial-gradient-white flex justify-center p-4"
               >
-                <div className="bg-white overflow-hidden rounded-full">
+                <div className="overflow-hidden rounded-full bg-white">
                   <Image
                     priority
                     width={200}
@@ -209,7 +209,7 @@ export default function Experience() {
               >
                 {active.title}
               </motion.h3>
-              <div className="sm:white-top-down-gradient sm:h-full relative grow overflow-y-scroll bg-mid pt-4 text-tprimary shadow-inner">
+              <div className="sm:white-top-down-gradient relative grow overflow-y-scroll bg-mid pt-4 text-tprimary shadow-inner sm:h-full">
                 <ul className="list-disc">
                   {active.description.map((desc, i) => {
                     return <li key={`description-${i}`}>{desc}</li>;

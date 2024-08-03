@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 import SelfImage from "@/public/images/self.jpg";
-import LinkedInIcon from "@/components/common/linked-in-icon";
-import GithubIcon from "@/components/common/github-icon";
+import LinkedInIcon from "@/components/icons/linked-in-icon";
+import GithubIcon from "@/components/icons/github-icon";
 import DesktopBlock from "@/components/layouts/desktop-block";
 
 const SelfData = {
