@@ -36,7 +36,7 @@ const experiencePillData = [
 
 function ExperiencePill({ src, name }: { src: string; name: string }) {
   return (
-    <div className="flex flex-col items-center rounded-[20px] p-2 text-center">
+    <div className="flex flex-col items-center rounded-[20px] p-2 text-center opacity-70">
       <Image
         src={src}
         alt={name}
@@ -91,7 +91,7 @@ export default function ProfilePhoto() {
           alt="Self"
           className="!m-0 h-[65px] w-[65px] rounded-full border-2 border-white object-cover object-top !p-0 sm:h-40 sm:w-40"
         />
-        <div className="mt-4 flex w-full flex-row items-center justify-center space-x-4">
+        <div className="mt-4 flex w-full flex-row items-center justify-center space-x-4 opacity-50">
           <a
             href="https://linkedin.com/in/lgdelacruz"
             className="rounded hover:border-2"
