@@ -11,6 +11,43 @@ const SelfData = {
   subtitle: "I have a talent for turning coffee into code.",
 };
 
+const experiencePillData = [
+  {
+    src: "/images/derivco.jpeg",
+    name: "Derivco",
+  },
+  {
+    src: "/images/leap.jpeg",
+    name: "Leap",
+  },
+  {
+    src: "/images/zybooks.jpeg",
+    name: "ZyBoooks",
+  },
+  {
+    src: "/images/bloomtrac.jpg",
+    name: "Bloomtrac",
+  },
+  {
+    src: "/images/alcon.jpeg",
+    name: "Alcon",
+  },
+];
+
+function ExperiencePill({ src, name }: { src: string; name: string }) {
+  return (
+    <div className="flex flex-col items-center rounded-[20px] p-2 text-center">
+      <Image
+        src={src}
+        alt={name}
+        width="40"
+        height="40"
+        className="rounded-full"
+      />
+    </div>
+  );
+}
+
 export default function ProfilePhoto() {
   return (
     <div className="flex w-full flex-row items-start p-4">
@@ -22,7 +59,17 @@ export default function ProfilePhoto() {
           {SelfData.subtitle}
         </div>
         <DesktopBlock>
-          <div className="text-white">Hello</div>
+          <div className="mt-4 grid grid-cols-3 gap-2">
+            {experiencePillData.map((pillData, index) => {
+              return (
+                <ExperiencePill
+                  key={`${pillData.name}-${index}`}
+                  src={pillData.src}
+                  name={pillData.name}
+                />
+              );
+            })}
+          </div>
         </DesktopBlock>
       </div>
       <div className="flex flex-col items-center">
