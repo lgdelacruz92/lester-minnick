@@ -4,6 +4,10 @@ import SelfImage from "@/public/images/self.jpg";
 import LinkedInIcon from "@/components/icons/linked-in-icon";
 import GithubIcon from "@/components/icons/github-icon";
 import DesktopBlock from "@/components/layouts/desktop-block";
+import { useState } from "react";
+import dynamic from "next/dynamic";
+
+const Modal = dynamic(() => import("@/components/common/modal"));
 
 const SelfData = {
   name: "Lester Minnick",
@@ -49,6 +53,7 @@ function ExperiencePill({ src, name }: { src: string; name: string }) {
 }
 
 export default function ProfilePhoto() {
+  const [showContacts, setShowContacts] = useState<boolean>(false);
   return (
     <div className="flex w-full flex-row items-start p-4">
       <div className="grow pr-4">
@@ -74,9 +79,16 @@ export default function ProfilePhoto() {
                 );
               })}
             </div>
-            <button className="rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white">
+            <button
+              onClick={() => setShowContacts(true)}
+              className="rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white"
+            >
               Contacts
             </button>
+            <Modal
+              showModal={showContacts}
+              setShowModal={() => setShowContacts(false)}
+            />
           </div>
         </DesktopBlock>
       </div>
