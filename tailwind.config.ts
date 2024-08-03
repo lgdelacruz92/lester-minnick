@@ -16,7 +16,8 @@ const config: Config = {
       mid: "#6482AD",
       tprimary: "#F5EDED",
       "card-background": "#363B3C",
-      "main-background": "#143C4B",
+      // "main-background": "#143C4B",
+      "main-background": "white",
       ...colors,
     },
     extend: {

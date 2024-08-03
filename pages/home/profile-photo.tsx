@@ -1,8 +1,13 @@
 import Image from "next/image";
 
 import SelfImage from "@/public/images/self.jpg";
-import LinkedInIcon from "@/components/common/linked-in-icon";
-import GithubIcon from "@/components/common/github-icon";
+import LinkedInIcon from "@/components/icons/linked-in-icon";
+import GithubIcon from "@/components/icons/github-icon";
+import DesktopBlock from "@/components/layouts/desktop-block";
+import { useState } from "react";
+import dynamic from "next/dynamic";
+
+const Modal = dynamic(() => import("@/components/common/modal"));
 
 const SelfData = {
   name: "Lester Minnick",
@@ -10,19 +15,85 @@ const SelfData = {
   subtitle: "I have a talent for turning coffee into code.",
 };
 
-export default function ProfilePhoto() {
+const experiencePillData = [
+  {
+    src: "/images/derivco.jpeg",
+    name: "Derivco",
+  },
+  {
+    src: "/images/leap.jpeg",
+    name: "Leap",
+  },
+  {
+    src: "/images/zybooks.jpeg",
+    name: "ZyBoooks",
+  },
+  {
+    src: "/images/bloomtrac.jpg",
+    name: "Bloomtrac",
+  },
+  {
+    src: "/images/alcon.jpeg",
+    name: "Alcon",
+  },
+];
+
+function ExperiencePill({ src, name }: { src: string; name: string }) {
   return (
-    <div className="flex w-full flex-row items-start">
-      <div className="max-w-[200px] p-4">
+    <div className="flex flex-col items-center rounded-[20px] p-2 text-center opacity-70">
+      <Image
+        src={src}
+        alt={name}
+        width="40"
+        height="40"
+        className="rounded-full border-2 shadow-lg"
+      />
+    </div>
+  );
+}
+
+export default function ProfilePhoto() {
+  const [showContacts, setShowContacts] = useState<boolean>(false);
+  return (
+    <div className="flex w-full flex-row items-start p-4">
+      <div className="grow pr-4">
         <div className="text-center text-[2rem] font-bold text-white">
           {SelfData.title}
         </div>
-        <div className="mt-2 text-center text-[1.2rem] text-white">
+        <div className="mt-2 text-center text-[1rem] text-neutral-400">
           {SelfData.subtitle}
         </div>
+        <DesktopBlock>
+          <div className="mt-4 flex flex-col items-center">
+            <div className="text-[1.25rem] text-white">
+              Professional Experience
+            </div>
+            <div className="grid grid-cols-5">
+              {experiencePillData.map((pillData, index) => {
+                return (
+                  <ExperiencePill
+                    key={`${pillData.name}-${index}`}
+                    src={pillData.src}
+                    name={pillData.name}
+                  />
+                );
+              })}
+            </div>
+            <button
+              onClick={() => setShowContacts(true)}
+              className={`rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white ${showContacts ? "pointer-events-none" : ""}`}
+            >
+              Contacts
+            </button>
+            <Modal
+              showModal={showContacts}
+              setShowModal={() => setShowContacts(false)}
+            />
+          </div>
+        </DesktopBlock>
       </div>
-      <div className="flex flex-col items-center p-4">
-        <div className="mb-2 text-[1.5rem] font-bold text-white">
+      <div className="flex flex-col items-center">
+        <div className="mb-2 text-center text-[1rem] font-bold text-white sm:text-[1.5rem]">
           {SelfData.name}
         </div>
         <Image
@@ -30,13 +101,19 @@ export default function ProfilePhoto() {
           width={384}
           src={SelfImage.src}
           alt="Self"
-          className="md:h-44 md:w-44 !m-0 h-24 w-24 rounded-full border-2 border-white object-cover object-top !p-0"
+          className="!m-0 h-[65px] w-[65px] rounded-full border-2 border-white object-cover object-top !p-0 sm:h-40 sm:w-40"
         />
-        <div className="mt-4 flex w-full flex-row items-center justify-center space-x-4">
-          <a href="https://linkedin.com/in/lgdelacruz">
+        <div className="mt-4 flex w-full flex-row items-center justify-center space-x-4 opacity-50">
+          <a
+            href="https://linkedin.com/in/lgdelacruz"
+            className="rounded hover:border-2"
+          >
             <LinkedInIcon fill={"var(--cui-blue)"} />
           </a>
-          <a href="https://github.com/lgdelacruz92">
+          <a
+            href="https://github.com/lgdelacruz92"
+            className="rounded hover:border-2"
+          >
             <GithubIcon fill={"white"} />
           </a>
         </div>
