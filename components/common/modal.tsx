@@ -47,17 +47,17 @@ export default function Modal({ showModal, setShowModal }: ModalProps) {
         >
           <div className="absolute left-[50%] top-[50%] flex translate-x-[-50%] flex-col rounded-lg bg-white p-4">
             <div className="text-center font-bold opacity-70">Contacts</div>
-            <div className="flex flex-row items-center opacity-50">
+            <div className="mt-2 flex flex-row items-center opacity-50">
               <span>
                 <EmailIcon width="16" height="16" fill="var(--cui-gray)" />
               </span>
-              <span className="ml-2">email: lgdelacruz92@gmail.com</span>
+              <span className="ml-2 text-nowrap">lgdelacruz92@gmail.com</span>
             </div>
-            <div className="flex flex-row items-center opacity-50">
+            <div className="mt-2 flex flex-row items-center opacity-50">
               <span>
                 <MobileIcon width="16" height="16" fill="var(--cui-gray)" />
               </span>
-              <span className="ml-2">phone: 805-319-8724</span>
+              <span className="ml-2">805-319-8724</span>
             </div>
           </div>
         </motion.div>

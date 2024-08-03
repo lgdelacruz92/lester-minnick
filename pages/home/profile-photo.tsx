@@ -79,18 +79,20 @@ export default function ProfilePhoto() {
                 );
               })}
             </div>
-            <button
-              onClick={() => setShowContacts(true)}
-              className={`rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white ${showContacts ? "pointer-events-none" : ""}`}
-            >
-              Contacts
-            </button>
-            <Modal
-              showModal={showContacts}
-              setShowModal={() => setShowContacts(false)}
-            />
           </div>
         </DesktopBlock>
+        <div className="flex flex-row justify-center">
+          <button
+            onClick={() => setShowContacts(true)}
+            className={`mt-2 rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white ${showContacts ? "pointer-events-none" : ""}`}
+          >
+            Contacts
+          </button>
+        </div>
+        <Modal
+          showModal={showContacts}
+          setShowModal={() => setShowContacts(false)}
+        />
       </div>
       <div className="flex flex-col items-center">
         <div className="mb-2 text-center text-[1rem] font-bold text-white sm:text-[1.5rem]">
