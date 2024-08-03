@@ -55,20 +55,28 @@ export default function ProfilePhoto() {
         <div className="text-center text-[2rem] font-bold text-white">
           {SelfData.title}
         </div>
-        <div className="mt-2 text-center text-[1rem] text-white">
+        <div className="mt-2 text-center text-[1rem] text-neutral-400">
           {SelfData.subtitle}
         </div>
         <DesktopBlock>
-          <div className="mt-4 grid grid-cols-3 gap-2">
-            {experiencePillData.map((pillData, index) => {
-              return (
-                <ExperiencePill
-                  key={`${pillData.name}-${index}`}
-                  src={pillData.src}
-                  name={pillData.name}
-                />
-              );
-            })}
+          <div className="mt-4 flex flex-col items-center">
+            <div className="text-[1.25rem] text-white">
+              Professional Experience
+            </div>
+            <div className="grid grid-cols-5">
+              {experiencePillData.map((pillData, index) => {
+                return (
+                  <ExperiencePill
+                    key={`${pillData.name}-${index}`}
+                    src={pillData.src}
+                    name={pillData.name}
+                  />
+                );
+              })}
+            </div>
+            <button className="rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white">
+              Contacts
+            </button>
           </div>
         </DesktopBlock>
       </div>
