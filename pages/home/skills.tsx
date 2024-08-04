@@ -4,6 +4,8 @@ import ReactIcon from "@/components/icons/react-icon";
 import VueIcon from "@/components/icons/vue-icon";
 import React from "react";
 import TypescriptIcon from "@/components/icons/typescript-icon";
+import CSSIcon from "@/components/icons/css-icon";
+import HtmlIcon from "@/components/icons/html-icon";
 
 const skillsData = [
   {
@@ -25,6 +27,16 @@ const skillsData = [
     name: "Javascript",
     years: 10,
     icon: <JavascriptIcon fill="white" stroke="white" height="80" width="80" />,
+  },
+  {
+    name: "Html5",
+    years: 10,
+    icon: <HtmlIcon fill="white" stroke="white" height="80" width="80" />,
+  },
+  {
+    name: "CSS3",
+    years: 10,
+    icon: <CSSIcon fill="white" stroke="white" height="80" width="80" />,
   },
 ];
 
