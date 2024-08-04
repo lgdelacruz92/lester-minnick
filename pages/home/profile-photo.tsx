@@ -3,6 +3,8 @@ import Image from "next/image";
 import SelfImage from "@/public/images/self.jpg";
 import LinkedInIcon from "@/components/icons/linked-in-icon";
 import GithubIcon from "@/components/icons/github-icon";
+import MobileIcon from "@/components/icons/mobile-icon";
+import EmailIcon from "@/components/icons/email-icon";
 import DesktopBlock from "@/components/layouts/desktop-block";
 import { useState } from "react";
 import dynamic from "next/dynamic";
@@ -92,7 +94,23 @@ export default function ProfilePhoto() {
         <Modal
           showModal={showContacts}
           setShowModal={() => setShowContacts(false)}
-        />
+        >
+          <div className="absolute left-[50%] top-[50%] flex translate-x-[-50%] flex-col rounded-lg bg-white p-4">
+            <div className="text-center font-bold opacity-70">Contacts</div>
+            <div className="mt-2 flex flex-row items-center opacity-50">
+              <span>
+                <EmailIcon width="16" height="16" fill="var(--cui-gray)" />
+              </span>
+              <span className="ml-2 text-nowrap">lgdelacruz92@gmail.com</span>
+            </div>
+            <div className="mt-2 flex flex-row items-center opacity-50">
+              <span>
+                <MobileIcon width="16" height="16" fill="var(--cui-gray)" />
+              </span>
+              <span className="ml-2">805-319-8724</span>
+            </div>
+          </div>
+        </Modal>
       </div>
       <div className="flex flex-col items-center">
         <div className="mb-2 text-center text-[1rem] font-bold text-white sm:text-[1.5rem]">
