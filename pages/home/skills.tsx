@@ -6,10 +6,11 @@ import React from "react";
 import TypescriptIcon from "@/components/icons/typescript-icon";
 import CSSIcon from "@/components/icons/css-icon";
 import HtmlIcon from "@/components/icons/html-icon";
+import PythonIcon from "@/components/icons/python-icon";
 
 const iconSize = 60;
 
-const skillsData = [
+const frontEndSkillsData = [
   {
     name: "React",
     years: 8,
@@ -74,7 +75,22 @@ const skillsData = [
   },
 ];
 
-skillsData.sort((a, b) => b.years - a.years);
+frontEndSkillsData.sort((a, b) => b.years - a.years);
+
+const backendSkillsData = [
+  {
+    name: "Python",
+    years: 5,
+    icon: (
+      <PythonIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
+  },
+];
 
 const SkillsDisplay = (props: {
   name: string;
@@ -101,9 +117,17 @@ export default function Skills() {
       </div>
       <div className="mt-4 text-white">Front-End Skills</div>
       <div
-        className={`mt-2 grid w-full grid-cols-${skillsData.length < 5 ? skillsData.length : 5} gap-2 text-white`}
+        className={`mt-2 grid grid-cols-${frontEndSkillsData.length < 5 ? frontEndSkillsData.length : 5} gap-2 text-white`}
       >
-        {skillsData.map((data, index) => (
+        {frontEndSkillsData.map((data, index) => (
+          <SkillsDisplay key={`${data.name}-${index}`} {...data} />
+        ))}
+      </div>
+      <div className="mt-4 text-white">Back-End Skills</div>
+      <div
+        className={`mt-2 grid grid-cols-${backendSkillsData.length < 5 ? backendSkillsData.length : 5} gap-2 text-white`}
+      >
+        {backendSkillsData.map((data, index) => (
           <SkillsDisplay key={`${data.name}-${index}`} {...data} />
         ))}
       </div>
