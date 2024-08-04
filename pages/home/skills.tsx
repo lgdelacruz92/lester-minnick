@@ -1,5 +1,6 @@
 /* App.js */
 import ReactIcon from "@/components/icons/react-icon";
+import VueIcon from "@/components/icons/vue-icon";
 import React from "react";
 
 export default function Skills() {
@@ -15,6 +16,14 @@ export default function Skills() {
           <div>React</div>
           <div className="text-super-script bg-subscript-background absolute right-0 top-0 flex flex-col items-center rounded-full p-2 text-red-500">
             <div className="leading-none text-white">8+</div>
+            <div className="text-[.5rem] leading-none text-white">years</div>
+          </div>
+        </div>
+        <div className="relative mt-2 flex flex-col items-center opacity-80">
+          <VueIcon fill="white" stroke="white" height="80" width="80" />
+          <div>Vue</div>
+          <div className="text-super-script bg-subscript-background absolute right-0 top-0 flex flex-col items-center rounded-full p-2 text-red-500">
+            <div className="leading-none text-white">1+</div>
             <div className="text-[.5rem] leading-none text-white">years</div>
           </div>
         </div>
