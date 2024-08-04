@@ -11,6 +11,9 @@ import CSharpIcon from "@/components/icons/c-sharp-icon";
 import NodeJsIcon from "@/components/icons/node-js-icon";
 import SqlIcon from "@/components/icons/sql-icon";
 import DockerIcon from "@/components/icons/docker-icon";
+import GitIcon from "@/components/icons/git-icon";
+import JiraIcon from "@/components/icons/jira-icon";
+import GithubBlackIcon from "@/components/icons/github-black-icon";
 
 const iconSize = 60;
 
@@ -143,6 +146,37 @@ const techAndToolsSkillsData = [
       />
     ),
   },
+  {
+    name: "Git",
+    years: 10,
+    icon: (
+      <GitIcon fill="white" stroke="white" height={iconSize} width={iconSize} />
+    ),
+  },
+  {
+    name: "Jira",
+    years: 5,
+    icon: (
+      <JiraIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
+  },
+  {
+    name: "Github",
+    years: 10,
+    icon: (
+      <GithubBlackIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
+  },
 ];
 
 techAndToolsSkillsData.sort((a, b) => b.years - a.years);
@@ -156,7 +190,7 @@ const SkillsDisplay = (props: {
     <div className="relative mt-2 flex flex-col items-center opacity-80">
       {props.icon}
       <div className="text-[.8rem] sm:text-[1rem]">{props.name}</div>
-      <div className="text-super-script bg-subscript-background absolute right-0 top-0 flex flex-col items-center rounded-full p-2 text-red-500">
+      <div className="text-super-script bg-subscript-background absolute right-0 top-0 flex flex-col items-center rounded-full p-2 text-red-500 sm:p-1 sm:text-[.8rem]">
         <div className="leading-none text-white">{`${props.years}+`}</div>
         <div className="text-[.5rem] leading-none text-white">years</div>
       </div>

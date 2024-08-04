@@ -23,7 +23,7 @@ const config: Config = {
       },
       fontSize: {
         "important-text": "2rem",
-        "super-script": "1rem",
+        "super-script": ".6rem",
       },
       animation: {
         "meteor-effect": "meteor 5s linear infinite",
