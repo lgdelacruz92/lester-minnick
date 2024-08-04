@@ -7,36 +7,70 @@ import TypescriptIcon from "@/components/icons/typescript-icon";
 import CSSIcon from "@/components/icons/css-icon";
 import HtmlIcon from "@/components/icons/html-icon";
 
+const iconSize = 60;
+
 const skillsData = [
   {
     name: "React",
     years: 8,
-    icon: <ReactIcon fill="white" stroke="white" height="80" width="80" />,
+    icon: (
+      <ReactIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
   },
   {
     name: "Vue",
     years: 1,
-    icon: <VueIcon fill="white" stroke="white" height="80" width="80" />,
+    icon: (
+      <VueIcon fill="white" stroke="white" height={iconSize} width={iconSize} />
+    ),
   },
   {
     name: "Typescript",
     years: 10,
-    icon: <TypescriptIcon fill="white" stroke="white" height="80" width="80" />,
+    icon: (
+      <TypescriptIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
   },
   {
     name: "Javascript",
     years: 10,
-    icon: <JavascriptIcon fill="white" stroke="white" height="80" width="80" />,
+    icon: (
+      <JavascriptIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
   },
   {
     name: "Html5",
     years: 10,
-    icon: <HtmlIcon fill="white" stroke="white" height="80" width="80" />,
+    icon: (
+      <HtmlIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
   },
   {
     name: "CSS3",
     years: 10,
-    icon: <CSSIcon fill="white" stroke="white" height="80" width="80" />,
+    icon: (
+      <CSSIcon fill="white" stroke="white" height={iconSize} width={iconSize} />
+    ),
   },
 ];
 
