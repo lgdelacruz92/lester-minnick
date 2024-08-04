@@ -111,11 +111,12 @@ const SkillsDisplay = (props: {
 
 export default function Skills() {
   return (
-    <div className="mt-4 flex flex-col items-center rounded-md">
+    <div className="mt-4 flex w-full flex-col items-center rounded-md">
       <div className="text-important-text w-full text-center text-white">
         Skills
       </div>
-      <div className="mt-4 text-white">Front-End Skills</div>
+      <div className="border-1 mt-4 w-full opacity-10"></div>
+      <div className="border-shaddow mt-4 text-white">Front-End Skills</div>
       <div
         className={`mt-2 grid grid-cols-${frontEndSkillsData.length < 5 ? frontEndSkillsData.length : 5} gap-2 text-white`}
       >
@@ -123,6 +124,7 @@ export default function Skills() {
           <SkillsDisplay key={`${data.name}-${index}`} {...data} />
         ))}
       </div>
+      <div className="border-1 mt-4 w-full opacity-10"></div>
       <div className="mt-4 text-white">Back-End Skills</div>
       <div
         className={`mt-2 grid grid-cols-${backendSkillsData.length < 5 ? backendSkillsData.length : 5} gap-2 text-white`}
