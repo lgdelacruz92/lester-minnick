@@ -59,7 +59,7 @@ export default function ProfilePhoto() {
   return (
     <div className="flex w-full flex-row items-start p-4">
       <div className="grow pr-4">
-        <div className="text-center text-[2rem] font-bold text-white">
+        <div className="text-important-text text-center font-bold text-white">
           {SelfData.title}
         </div>
         <div className="mt-2 text-center text-[1rem] text-neutral-400">

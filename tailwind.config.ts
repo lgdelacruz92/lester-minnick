@@ -1,6 +1,5 @@
 import { Config } from "tailwindcss";
 import colors from "tailwindcss/colors";
-import fontSize from "tailwindcss/";
 
 const config: Config = {
   content: [
@@ -21,10 +20,8 @@ const config: Config = {
       ...colors,
     },
     extend: {
-      backgroundImage: {
-        // "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        // "gradient-conic":
-        //   "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontSize: {
+        "important-text": "2rem",
       },
       animation: {
         "meteor-effect": "meteor 5s linear infinite",
