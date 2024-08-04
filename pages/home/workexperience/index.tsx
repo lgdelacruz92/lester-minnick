@@ -3,9 +3,9 @@ import Experience from "./experience";
 
 export default function WorkExperience() {
   return (
-    <div className="flex flex-col items-center space-y-4 rounded-md">
-      <div className="text-white flex items-center pt-4 text-base font-bold">
-        <span className="w-full text-center">Work Experience</span>
+    <div className="divide-divider-color mt-4 flex flex-col items-center space-y-4 divide-y rounded-md">
+      <div className="text-important-text flex items-center text-white">
+        Work Experience
       </div>
       <Experience />
     </div>

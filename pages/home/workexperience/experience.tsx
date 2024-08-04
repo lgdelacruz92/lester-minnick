@@ -112,7 +112,7 @@ export default function Experience() {
       {data.map((d) => (
         <div
           key={d.id}
-          className="flex w-full p-4 hover:bg-zinc-700"
+          className="flex w-full items-stretch p-4 hover:bg-zinc-700"
           onClick={() => {
             setActive(d);
           }}
@@ -122,14 +122,14 @@ export default function Experience() {
             width={100}
             height={100}
             alt="derivco image"
-            className="rounded"
+            className="rounded-full"
           />
-          <div className="ml-4 grow">
+          <div className="ml-4">
             <div className="mb-2 uppercase text-white">{d.title}</div>
             <div className="text-left text-tprimary">{d.companyName}</div>
             <div className="text-left text-tprimary">{d.duration}</div>
             <button
-              className="rounded-full bg-tprimary px-4 text-primary"
+              className="mt-2 rounded-full bg-tprimary px-4 text-card-background shadow hover:border hover:border-white"
               onClick={() => {
                 setActive(d);
               }}
@@ -141,11 +141,13 @@ export default function Experience() {
       ))}
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0 z-[100] grid place-items-center">
+          <div
+            ref={ref}
+            className="fixed left-0 top-0 z-[100] !m-0 grid h-full w-full place-items-center bg-black/40"
+          >
             <motion.div
               layoutId={`card-${active.title}-${active.id}`}
-              ref={ref}
-              className="relative flex h-full w-full flex-col overflow-hidden rounded bg-mid shadow-2xl"
+              className="divide-divider-color relative flex flex-col divide-y rounded-lg bg-card-background opacity-100 shadow-2xl"
               initial={{
                 opacity: 0,
                 width: 0,
@@ -159,7 +161,7 @@ export default function Experience() {
               exit={{
                 opacity: 0,
                 transition: {
-                  duration: 0.5,
+                  duration: 0.1,
                 },
               }}
             >
@@ -175,7 +177,7 @@ export default function Experience() {
                 exit={{
                   opacity: 0,
                   transition: {
-                    duration: 0.05,
+                    duration: 0.1,
                   },
                 }}
                 className="close-button absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full text-white"
@@ -205,11 +207,11 @@ export default function Experience() {
 
               <motion.h3
                 layoutId={`title-${active.title}-${active.id}`}
-                className="m-0 bg-mid p-4 pb-2 font-bold text-tprimary"
+                className="text-important-text p-4 text-white"
               >
                 {active.title}
               </motion.h3>
-              <div className="sm:white-top-down-gradient relative grow overflow-y-scroll bg-mid pt-4 text-tprimary shadow-inner sm:h-full">
+              <div className="sm:white-top-down-gradient relative grow overflow-y-scroll pt-4 text-tprimary sm:h-full">
                 <ul className="list-disc">
                   {active.description.map((desc, i) => {
                     return <li key={`description-${i}`}>{desc}</li>;

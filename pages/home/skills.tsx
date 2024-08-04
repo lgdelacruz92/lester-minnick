@@ -226,7 +226,7 @@ const SkillsDisplay = (props: {
 
 export default function Skills() {
   return (
-    <div className="mt-4 flex w-full flex-col items-center rounded-md">
+    <div className="mt-4 flex w-full flex-col items-center rounded-md pb-4 shadow-lg">
       <div className="text-important-text w-full text-center text-white">
         Skills
       </div>

@@ -7,7 +7,7 @@
 }
 
 .radial-gradient-white {
-    background: radial-gradient(white, #6482AD);
+    background: radial-gradient(white, var(--card-background));
 }
 
 .white-top-down-gradient {

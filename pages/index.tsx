@@ -19,8 +19,8 @@ export default function Home() {
       <div className="mt-4 flex max-w-[500px] flex-col items-center sm:mt-0 sm:w-full sm:rounded sm:bg-card-background sm:shadow-xl">
         <ProfilePhoto />
         <Skills />
-        {/*
         <WorkExperience />
+        {/*
         <References /> */}
       </div>
     </main>
