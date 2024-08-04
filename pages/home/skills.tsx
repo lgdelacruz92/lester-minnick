@@ -3,6 +3,7 @@ import JavascriptIcon from "@/components/icons/javascript-icon";
 import ReactIcon from "@/components/icons/react-icon";
 import VueIcon from "@/components/icons/vue-icon";
 import React from "react";
+import TypescriptIcon from "@/components/icons/typescript-icon";
 
 const skillsData = [
   {
@@ -16,11 +17,18 @@ const skillsData = [
     icon: <VueIcon fill="white" stroke="white" height="80" width="80" />,
   },
   {
+    name: "Typescript",
+    years: 10,
+    icon: <TypescriptIcon fill="white" stroke="white" height="80" width="80" />,
+  },
+  {
     name: "Javascript",
     years: 10,
     icon: <JavascriptIcon fill="white" stroke="white" height="80" width="80" />,
   },
 ];
+
+skillsData.sort((a, b) => b.years - a.years);
 
 const SkillsDisplay = (props: {
   name: string;
@@ -41,12 +49,14 @@ const SkillsDisplay = (props: {
 
 export default function Skills() {
   return (
-    <div className="flex flex-col items-center rounded-md p-4">
+    <div className="mt-4 flex flex-col items-center rounded-md">
       <div className="text-important-text w-full text-center text-white">
         Skills
       </div>
       <div className="mt-4 text-white">Front-End Skills</div>
-      <div className="mt-2 text-white">
+      <div
+        className={`mt-2 grid w-full grid-cols-${skillsData.length < 5 ? skillsData.length : 5} gap-2 text-white`}
+      >
         {skillsData.map((data, index) => (
           <SkillsDisplay key={`${data.name}-${index}`} {...data} />
         ))}
