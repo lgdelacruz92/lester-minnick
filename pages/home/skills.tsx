@@ -1,63 +1,78 @@
 /* App.js */
-import React, { useRef } from "react";
-import { CChart } from "@coreui/react-chartjs";
-import { ChartOptions } from "chart.js";
-import { getStyle } from "@coreui/utils";
-import { GlareCard } from "@/components/ui/glare-card";
-import MobileBlock from "@/components/layouts/mobile-block";
-import DesktopBlock from "@/components/layouts/desktop-block";
+import JavascriptIcon from "@/components/icons/javascript-icon";
+import ReactIcon from "@/components/icons/react-icon";
+import VueIcon from "@/components/icons/vue-icon";
+import React from "react";
+import TypescriptIcon from "@/components/icons/typescript-icon";
+import CSSIcon from "@/components/icons/css-icon";
+import HtmlIcon from "@/components/icons/html-icon";
 
-const data = {
-  labels: [
-    "Typescript",
-    "Problem Solving",
-    "HTML/CSS",
-    "AI Tech",
-    "Backend",
-    "Cloud",
-    "SQL",
-  ],
-  datasets: [
-    {
-      label: "Technical Strengths",
-      backgroundColor: "rgba(151, 187, 205, 0.2)",
-      borderColor: getStyle("--cui-success"),
-      pointBackgroundColor: getStyle("--cui-cyan"),
-      pointBorderColor: getStyle("--cui-success"),
-      pointHighlightFill: getStyle("--cui-success"),
-      pointHighlightStroke: getStyle("--cui-success"),
-      data: [95, 100, 90, 50, 75, 50, 65],
-    },
-  ],
-};
+const skillsData = [
+  {
+    name: "React",
+    years: 8,
+    icon: <ReactIcon fill="white" stroke="white" height="80" width="80" />,
+  },
+  {
+    name: "Vue",
+    years: 1,
+    icon: <VueIcon fill="white" stroke="white" height="80" width="80" />,
+  },
+  {
+    name: "Typescript",
+    years: 10,
+    icon: <TypescriptIcon fill="white" stroke="white" height="80" width="80" />,
+  },
+  {
+    name: "Javascript",
+    years: 10,
+    icon: <JavascriptIcon fill="white" stroke="white" height="80" width="80" />,
+  },
+  {
+    name: "Html5",
+    years: 10,
+    icon: <HtmlIcon fill="white" stroke="white" height="80" width="80" />,
+  },
+  {
+    name: "CSS3",
+    years: 10,
+    icon: <CSSIcon fill="white" stroke="white" height="80" width="80" />,
+  },
+];
 
-const options: ChartOptions = {
-  plugins: {
-    legend: {
-      labels: {
-        color: "#fff",
-      },
-    },
-  },
-  scales: {
-    r: {
-      beginAtZero: true,
-      pointLabels: {
-        color: "#fff",
-      },
-    },
-  },
+skillsData.sort((a, b) => b.years - a.years);
+
+const SkillsDisplay = (props: {
+  name: string;
+  years: number;
+  icon: React.JSX.Element;
+}) => {
+  return (
+    <div className="relative mt-2 flex flex-col items-center opacity-80">
+      {props.icon}
+      <div>{props.name}</div>
+      <div className="text-super-script bg-subscript-background absolute right-0 top-0 flex flex-col items-center rounded-full p-2 text-red-500">
+        <div className="leading-none text-white">{`${props.years}+`}</div>
+        <div className="text-[.5rem] leading-none text-white">years</div>
+      </div>
+    </div>
+  );
 };
 
 export default function Skills() {
-  const ref = useRef();
-
   return (
-    <div className="flex flex-col items-center rounded-md p-4">
-      <div className="flex items-center text-base font-bold text-white">
-        <span className="w-full text-center">Skills</span>
+    <div className="mt-4 flex flex-col items-center rounded-md">
+      <div className="text-important-text w-full text-center text-white">
+        Skills
       </div>
-      <CChart type="radar" ref={ref} data={data} options={options} />
+      <div className="mt-4 text-white">Front-End Skills</div>
+      <div
+        className={`mt-2 grid w-full grid-cols-${skillsData.length < 5 ? skillsData.length : 5} gap-2 text-white`}
+      >
+        {skillsData.map((data, index) => (
+          <SkillsDisplay key={`${data.name}-${index}`} {...data} />
+        ))}
+      </div>
     </div>
   );
 }
