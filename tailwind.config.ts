@@ -8,20 +8,21 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: {
-      primary: "#F5EDED",
-      secondary: "#E2DAD6",
-      background: "#7FA1C3",
-      mid: "#6482AD",
-      tprimary: "#F5EDED",
-      "card-background": "#363B3C",
-      // "main-background": "#143C4B",
-      "main-background": "white",
-      ...colors,
-    },
     extend: {
+      colors: {
+        primary: "#F5EDED",
+        secondary: "#E2DAD6",
+        background: "#7FA1C3",
+        mid: "#6482AD",
+        tprimary: "#F5EDED",
+        "card-background": "#363B3C",
+        // "main-background": "#143C4B",
+        "main-background": "white",
+        "subscript-background": "#6496FF",
+      },
       fontSize: {
         "important-text": "2rem",
+        "super-script": "1rem",
       },
       animation: {
         "meteor-effect": "meteor 5s linear infinite",
