@@ -8,6 +8,7 @@ import CSSIcon from "@/components/icons/css-icon";
 import HtmlIcon from "@/components/icons/html-icon";
 import PythonIcon from "@/components/icons/python-icon";
 import CSharpIcon from "@/components/icons/c-sharp-icon";
+import NodeJsIcon from "@/components/icons/node-js-icon";
 
 const iconSize = 60;
 
@@ -103,7 +104,22 @@ const backendSkillsData = [
       />
     ),
   },
+
+  {
+    name: "Nodejs",
+    years: 5,
+    icon: (
+      <NodeJsIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
+  },
 ];
+
+backendSkillsData.sort((a, b) => b.years - a.years);
 
 const SkillsDisplay = (props: {
   name: string;
