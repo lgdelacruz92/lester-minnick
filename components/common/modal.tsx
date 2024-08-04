@@ -46,7 +46,7 @@ export default function Modal({
           animate="visible"
           ref={modalRef}
           id="modal-item-123"
-          className="fixed left-0 top-0 h-full w-full bg-black/40"
+          className="fixed left-0 top-0 z-10 h-full w-full bg-black/40"
         >
           {children}
         </motion.div>
