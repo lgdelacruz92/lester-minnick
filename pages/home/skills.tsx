@@ -6,10 +6,13 @@ import React from "react";
 import TypescriptIcon from "@/components/icons/typescript-icon";
 import CSSIcon from "@/components/icons/css-icon";
 import HtmlIcon from "@/components/icons/html-icon";
+import PythonIcon from "@/components/icons/python-icon";
+import CSharpIcon from "@/components/icons/c-sharp-icon";
+import NodeJsIcon from "@/components/icons/node-js-icon";
 
 const iconSize = 60;
 
-const skillsData = [
+const frontEndSkillsData = [
   {
     name: "React",
     years: 8,
@@ -74,7 +77,49 @@ const skillsData = [
   },
 ];
 
-skillsData.sort((a, b) => b.years - a.years);
+frontEndSkillsData.sort((a, b) => b.years - a.years);
+
+const backendSkillsData = [
+  {
+    name: "Python",
+    years: 5,
+    icon: (
+      <PythonIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
+  },
+  {
+    name: "C#",
+    years: 2,
+    icon: (
+      <CSharpIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
+  },
+
+  {
+    name: "Nodejs",
+    years: 5,
+    icon: (
+      <NodeJsIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
+  },
+];
+
+backendSkillsData.sort((a, b) => b.years - a.years);
 
 const SkillsDisplay = (props: {
   name: string;
@@ -95,15 +140,21 @@ const SkillsDisplay = (props: {
 
 export default function Skills() {
   return (
-    <div className="mt-4 flex flex-col items-center rounded-md">
+    <div className="mt-4 flex w-full flex-col items-center rounded-md">
       <div className="text-important-text w-full text-center text-white">
         Skills
       </div>
-      <div className="mt-4 text-white">Front-End Skills</div>
-      <div
-        className={`mt-2 grid w-full grid-cols-${skillsData.length < 5 ? skillsData.length : 5} gap-2 text-white`}
-      >
-        {skillsData.map((data, index) => (
+      <div className="border-1 mt-4 w-full opacity-10"></div>
+      <div className="border-shaddow mt-4 text-white">Front-End Skills</div>
+      <div className={`mt-2 grid grid-cols-5 gap-2 text-white`}>
+        {frontEndSkillsData.map((data, index) => (
+          <SkillsDisplay key={`${data.name}-${index}`} {...data} />
+        ))}
+      </div>
+      <div className="border-1 mt-4 w-full opacity-10"></div>
+      <div className="mt-4 text-white">Back-End Skills</div>
+      <div className={`mt-2 grid grid-cols-5 gap-2 text-white`}>
+        {backendSkillsData.map((data, index) => (
           <SkillsDisplay key={`${data.name}-${index}`} {...data} />
         ))}
       </div>

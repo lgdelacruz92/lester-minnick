@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --card-background: #363B3C
+}
+
 .radial-gradient-white {
     background: radial-gradient(white, #6482AD);
 }

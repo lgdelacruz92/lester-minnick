@@ -19,6 +19,7 @@ const config: Config = {
         // "main-background": "#143C4B",
         "main-background": "white",
         "subscript-background": "#6496FF",
+        "divider-color": "rgba(255, 255, 255, 0.2)",
       },
       fontSize: {
         "important-text": "2rem",

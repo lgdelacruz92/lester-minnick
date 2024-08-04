@@ -57,7 +57,7 @@ function ExperiencePill({ src, name }: { src: string; name: string }) {
 export default function ProfilePhoto() {
   const [showContacts, setShowContacts] = useState<boolean>(false);
   return (
-    <div className="flex w-full flex-row items-start shadow-lg">
+    <div className="divide-divider-color flex w-full flex-row items-stretch divide-x shadow-lg">
       <div className="grow p-4">
         <div className="text-important-text text-center font-bold text-white">
           {SelfData.title}
@@ -112,7 +112,7 @@ export default function ProfilePhoto() {
           </div>
         </Modal>
       </div>
-      <div className="flex flex-col items-center p-4 shadow-inner shadow-lg">
+      <div className="flex flex-col items-center p-4">
         <div className="mb-2 text-center text-[1rem] font-bold text-white sm:text-[1.5rem]">
           {SelfData.name}
         </div>
