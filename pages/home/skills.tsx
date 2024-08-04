@@ -14,6 +14,8 @@ import DockerIcon from "@/components/icons/docker-icon";
 import GitIcon from "@/components/icons/git-icon";
 import JiraIcon from "@/components/icons/jira-icon";
 import GithubBlackIcon from "@/components/icons/github-black-icon";
+import VSCodeIcon from "@/components/icons/vscode-icon";
+import OpenAIIcon from "@/components/icons/openai-icon";
 
 const iconSize = 60;
 
@@ -170,6 +172,30 @@ const techAndToolsSkillsData = [
     years: 10,
     icon: (
       <GithubBlackIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
+  },
+  {
+    name: "VSCode",
+    years: 10,
+    icon: (
+      <VSCodeIcon
+        fill="white"
+        stroke="white"
+        height={iconSize}
+        width={iconSize}
+      />
+    ),
+  },
+  {
+    name: "OpenAI",
+    years: 2,
+    icon: (
+      <OpenAIIcon
         fill="white"
         stroke="white"
         height={iconSize}
