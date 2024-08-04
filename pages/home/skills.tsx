@@ -129,7 +129,7 @@ const SkillsDisplay = (props: {
   return (
     <div className="relative mt-2 flex flex-col items-center opacity-80">
       {props.icon}
-      <div>{props.name}</div>
+      <div className="text-[.8rem] sm:text-[1rem]">{props.name}</div>
       <div className="text-super-script bg-subscript-background absolute right-0 top-0 flex flex-col items-center rounded-full p-2 text-red-500">
         <div className="leading-none text-white">{`${props.years}+`}</div>
         <div className="text-[.5rem] leading-none text-white">years</div>
@@ -146,14 +146,14 @@ export default function Skills() {
       </div>
       <div className="border-1 mt-4 w-full opacity-10"></div>
       <div className="border-shaddow mt-4 text-white">Front-End Skills</div>
-      <div className={`mt-2 grid grid-cols-5 gap-2 text-white`}>
+      <div className={`mt-2 grid grid-cols-4 gap-2 p-4 text-white`}>
         {frontEndSkillsData.map((data, index) => (
           <SkillsDisplay key={`${data.name}-${index}`} {...data} />
         ))}
       </div>
       <div className="border-1 mt-4 w-full opacity-10"></div>
       <div className="mt-4 text-white">Back-End Skills</div>
-      <div className={`mt-2 grid grid-cols-5 gap-2 text-white`}>
+      <div className={`mt-2 grid grid-cols-4 gap-2 pt-2 text-white`}>
         {backendSkillsData.map((data, index) => (
           <SkillsDisplay key={`${data.name}-${index}`} {...data} />
         ))}
