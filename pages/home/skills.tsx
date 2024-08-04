@@ -9,6 +9,7 @@ import HtmlIcon from "@/components/icons/html-icon";
 import PythonIcon from "@/components/icons/python-icon";
 import CSharpIcon from "@/components/icons/c-sharp-icon";
 import NodeJsIcon from "@/components/icons/node-js-icon";
+import SqlIcon from "@/components/icons/sql-icon";
 
 const iconSize = 60;
 
@@ -106,7 +107,7 @@ const backendSkillsData = [
   },
 
   {
-    name: "Nodejs",
+    name: "SQL",
     years: 5,
     icon: (
       <NodeJsIcon
@@ -115,6 +116,13 @@ const backendSkillsData = [
         height={iconSize}
         width={iconSize}
       />
+    ),
+  },
+  {
+    name: "Nodejs",
+    years: 5,
+    icon: (
+      <SqlIcon fill="white" stroke="white" height={iconSize} width={iconSize} />
     ),
   },
 ];
