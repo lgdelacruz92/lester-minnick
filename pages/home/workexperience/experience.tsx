@@ -150,8 +150,6 @@ export default function Experience() {
               className="relative flex flex-col divide-y divide-divider-color overflow-hidden rounded-lg bg-card-background opacity-100 shadow-2xl"
               initial={{
                 opacity: 0,
-                width: 0,
-                height: 0,
               }}
               animate={{
                 opacity: 1,
