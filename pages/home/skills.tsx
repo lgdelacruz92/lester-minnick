@@ -216,7 +216,7 @@ const SkillsDisplay = (props: {
     <div className="relative mt-2 flex flex-col items-center opacity-80">
       {props.icon}
       <div className="text-[.8rem] sm:text-[1rem]">{props.name}</div>
-      <div className="text-super-script bg-subscript-background absolute right-0 top-0 flex flex-col items-center rounded-full p-2 text-red-500 sm:p-1 sm:text-[.8rem]">
+      <div className="absolute right-0 top-0 flex flex-col items-center rounded-full bg-subscript-background p-2 text-super-script text-red-500 sm:p-1 sm:text-[.8rem]">
         <div className="leading-none text-white">{`${props.years}+`}</div>
         <div className="text-[.5rem] leading-none text-white">years</div>
       </div>
@@ -227,10 +227,10 @@ const SkillsDisplay = (props: {
 export default function Skills() {
   return (
     <div className="mt-4 flex w-full flex-col items-center rounded-md pb-4 shadow-lg">
-      <div className="text-important-text w-full text-center text-white">
+      <div className="w-full text-center text-important-text text-white">
         Skills
       </div>
-      <div className="border-1 mt-4 w-full opacity-10"></div>
+      <div className="border-1 w-full opacity-10"></div>
       <div className="border-shaddow mt-4 text-white">Front-End Skills</div>
       <div className={`mt-2 grid grid-cols-4 gap-2 p-4 text-white`}>
         {frontEndSkillsData.map((data, index) => (

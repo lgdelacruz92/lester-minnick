@@ -122,7 +122,7 @@ export default function Experience() {
             width={100}
             height={100}
             alt="derivco image"
-            className="rounded-full"
+            className="h-[100px] w-[100px] rounded-full"
           />
           <div className="ml-4">
             <div className="mb-2 uppercase text-white">{d.title}</div>
@@ -147,7 +147,7 @@ export default function Experience() {
           >
             <motion.div
               layoutId={`card-${active.title}-${active.id}`}
-              className="divide-divider-color relative flex flex-col divide-y rounded-lg bg-card-background opacity-100 shadow-2xl"
+              className="relative flex flex-col divide-y divide-divider-color rounded-lg bg-card-background opacity-100 shadow-2xl"
               initial={{
                 opacity: 0,
                 width: 0,
@@ -180,7 +180,7 @@ export default function Experience() {
                     duration: 0.1,
                   },
                 }}
-                className="close-button absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full text-white"
+                className="close-button absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-white"
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -207,7 +207,7 @@ export default function Experience() {
 
               <motion.h3
                 layoutId={`title-${active.title}-${active.id}`}
-                className="text-important-text p-4 text-white"
+                className="p-4 text-important-text text-white"
               >
                 {active.title}
               </motion.h3>

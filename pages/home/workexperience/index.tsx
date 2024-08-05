@@ -3,8 +3,8 @@ import Experience from "./experience";
 
 export default function WorkExperience() {
   return (
-    <div className="divide-divider-color mt-4 flex flex-col items-center space-y-4 divide-y rounded-md">
-      <div className="text-important-text flex items-center text-white">
+    <div className="mt-4 flex w-full flex-col items-center divide-y divide-divider-color rounded-md">
+      <div className="flex items-center text-important-text text-white">
         Work Experience
       </div>
       <Experience />
