@@ -157,6 +157,9 @@ export default function Experience() {
                 opacity: 1,
                 width: isXs ? "100%" : 700,
                 height: isXs ? 850 : 500,
+                transition: {
+                  duration: 0.5,
+                },
               }}
               exit={{
                 opacity: 0,
@@ -211,13 +214,31 @@ export default function Experience() {
               >
                 {active.title}
               </motion.h3>
-              <div className="sm:white-top-down-gradient relative grow overflow-y-scroll pt-4 text-tprimary sm:h-full">
+              <motion.div
+                layoutId={`title-${active.title}-${active.id}`}
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                  transition: {
+                    duration: 1.5,
+                  },
+                }}
+                exit={{
+                  opacity: 0,
+                  transition: {
+                    duration: 0.5,
+                  },
+                }}
+                className="sm:white-top-down-gradient relative grow overflow-y-scroll pt-4 text-tprimary sm:h-full"
+              >
                 <ul className="list-disc">
                   {active.description.map((desc, i) => {
                     return <li key={`description-${i}`}>{desc}</li>;
                   })}
                 </ul>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         ) : null}
