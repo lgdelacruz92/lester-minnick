@@ -147,7 +147,7 @@ export default function Experience() {
           >
             <motion.div
               layoutId={`card-${active.title}-${active.id}`}
-              className="relative flex flex-col divide-y divide-divider-color rounded-lg bg-card-background opacity-100 shadow-2xl"
+              className="relative flex flex-col divide-y divide-divider-color overflow-hidden rounded-lg bg-card-background opacity-100 shadow-2xl"
               initial={{
                 opacity: 0,
                 width: 0,
@@ -155,7 +155,7 @@ export default function Experience() {
               }}
               animate={{
                 opacity: 1,
-                width: isXs ? "100%" : 500,
+                width: isXs ? "100%" : 700,
                 height: isXs ? 850 : 500,
               }}
               exit={{
