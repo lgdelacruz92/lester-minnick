@@ -5,7 +5,7 @@ export default function JiraIcon(props: any) {
       fill={props.fill ? props.fill : "var(--cui-black)"}
       height={props.height ? props.height : 24}
       width={props.width ? props.width : 24}
-      stroke-width="0"
+      strokeWidth="0"
       version="1.1"
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"

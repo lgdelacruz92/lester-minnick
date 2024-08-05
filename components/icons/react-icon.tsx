@@ -3,7 +3,7 @@ export default function ReactIcon(props: any) {
     <svg
       stroke={props.stroke ? props.stroke : "var(--cui-black)"}
       fill={props.fill ? props.fill : "var(--cui-black)"}
-      stroke-width="0"
+      strokeWidth="0"
       version="1.1"
       viewBox="0 0 34 32"
       height={props.height ? props.height : 24}
