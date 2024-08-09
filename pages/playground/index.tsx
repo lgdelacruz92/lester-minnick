@@ -1,6 +1,62 @@
+"use client";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useReducer, useState } from "react";
+
+type ReferenceData = {
+  id: string;
+  name: string;
+  src: string;
+  title: string;
+  review: string;
+};
+
+function ReferenceItemInfo({
+  data,
+  onReferenceClick,
+}: {
+  data: ReferenceData;
+  onReferenceClick: (data: string) => void;
+}) {
+  return (
+    <div
+      className="flex flex-col items-center"
+      onClick={() => onReferenceClick(data.id)}
+    >
+      <Image
+        src={data.src}
+        alt={data.name}
+        width={100}
+        height={100}
+        className="h-[64px] w-[64px] rounded-full border-2 border-slate-50 shadow-lg hover:border-slate-500"
+      />
+      <div className="text-subscript text-white">{data.name}</div>
+      <div className="text-subscript font-bold text-white">{data.title}</div>
+    </div>
+  );
+}
+
+function References({
+  referencesData,
+  onReferenceInfoClick,
+}: {
+  referencesData: Array<ReferenceData>;
+  onReferenceInfoClick: (referenceId: string) => void;
+}) {
+  return (
+    <div className="flex flex-row gap-2 p-4">
+      {referencesData.map((data, index) => {
+        return (
+          <ReferenceItemInfo
+            key={`${data.name}-${index}`}
+            data={data}
+            onReferenceClick={onReferenceInfoClick}
+          />
+        );
+      })}
+    </div>
+  );
+}
 
 const referencesData: Array<ReferenceData> = [
   {
@@ -21,78 +77,55 @@ const referencesData: Array<ReferenceData> = [
   },
 ];
 
-type ReferenceData = {
-  id: string;
-  name: string;
-  src: string;
-  title: string;
-  review: string;
+type TransitionType = "open" | "close" | "change";
+
+type ReviewState = {
+  transitionType: TransitionType;
+  data: ReferenceData;
 };
 
-function ReferenceItemInfo({
-  data,
-  onReferenceInfoClick,
-}: {
-  data: ReferenceData;
-  onReferenceInfoClick: (data: ReferenceData) => void;
-}) {
-  return (
-    <div
-      className="flex flex-col items-center"
-      onClick={() => onReferenceInfoClick(data)}
-    >
-      <Image
-        src={data.src}
-        alt={data.name}
-        width={100}
-        height={100}
-        className="h-[64px] w-[64px] rounded-full border-2 border-slate-50 shadow-lg hover:border-slate-500"
-      />
-      <div className="text-subscript text-white">{data.name}</div>
-      <div className="text-subscript font-bold text-white">{data.title}</div>
-    </div>
-  );
-}
+type ReviewStateAction = {
+  currentTransitionType: TransitionType;
+  newData: ReferenceData | null;
+};
 
-function References({
-  referencesData,
-  onReferenceClick,
-}: {
-  referencesData: Array<ReferenceData>;
-  onReferenceClick: (referenceInfo: ReferenceData) => void;
-}) {
-  return (
-    <div className="flex flex-row gap-2 p-4">
-      {referencesData.map((data, index) => {
-        return (
-          <ReferenceItemInfo
-            key={`${data.name}-${index}`}
-            data={data}
-            onReferenceInfoClick={onReferenceClick}
-          />
-        );
-      })}
-    </div>
-  );
+const initialReview: ReviewState = {
+  transitionType: "close",
+  data: referencesData[0],
+};
+
+function animationReducer(
+  state: ReviewState,
+  action: ReviewStateAction,
+): ReviewState {
+  switch (action.currentTransitionType) {
+    case "open":
+      return { ...state, transitionType: "open", data: action.newData };
+    case "close":
+      return { ...state, transitionType: "close" };
+    case "change":
+      return { ...state, transitionType: "change", data: action.newData };
+    default:
+      throw new Error();
+  }
 }
 
 export default function Playground() {
-  const [referenceInfo, setReferenceInfo] = useState<ReferenceData | null>(
-    null,
-  );
-  const handleReferenceClick = (selectedReferenceInfo: ReferenceData): void => {
-    if (referenceInfo && referenceInfo.id === selectedReferenceInfo.id) {
-      setReferenceInfo(null);
-    } else {
-      setReferenceInfo(selectedReferenceInfo);
+  const [state, dispatch] = useReducer(animationReducer, initialReview);
+
+  const handleReferenceClick = (selectedReferenceId: string) => {
+    const currentId = state.data.id;
+    if (currentId === selectedReferenceId) {
+      dispatch({ currentTransitionType: "close", newData: null });
     }
   };
+
   return (
     <div className="w-[500px] bg-card-background">
       <AnimatePresence mode="wait">
-        {referenceInfo && (
+        {/* {state.currentViewStatus === "close" && (
           <motion.div
-            layoutId={`${referenceInfo.id}`}
+            layoutId={`${referenceId}`}
             initial={{
               opacity: 0,
               height: 0,
@@ -100,15 +133,15 @@ export default function Playground() {
             }}
             animate={{ opacity: 1, height: 200, transition: { duration: 1 } }}
             exit={{ transition: { duration: 0.5 } }}
-            className="text-white"
+            className="w-full bg-slate-300 text-white"
           >
-            {referenceInfo.review}
+            {showReview}
           </motion.div>
-        )}
+        )} */}
       </AnimatePresence>
       <References
         referencesData={referencesData}
-        onReferenceClick={handleReferenceClick}
+        onReferenceInfoClick={handleReferenceClick}
       />
     </div>
   );
