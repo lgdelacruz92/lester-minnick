@@ -24,6 +24,7 @@ const config: Config = {
       fontSize: {
         "important-text": "2rem",
         "super-script": ".6rem",
+        subscript: ".5rem",
       },
       animation: {
         "meteor-effect": "meteor 5s linear infinite",

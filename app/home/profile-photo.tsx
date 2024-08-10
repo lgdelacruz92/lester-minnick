@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 import SelfImage from "@/public/images/self.jpg";
@@ -57,9 +58,9 @@ function ExperiencePill({ src, name }: { src: string; name: string }) {
 export default function ProfilePhoto() {
   const [showContacts, setShowContacts] = useState<boolean>(false);
   return (
-    <div className="divide-divider-color flex w-full flex-row items-stretch divide-x shadow-lg">
+    <div className="flex w-full flex-row items-stretch divide-x divide-divider-color shadow-lg">
       <div className="grow p-4">
-        <div className="text-important-text text-center font-bold text-white">
+        <div className="text-center text-important-text font-bold text-white">
           {SelfData.title}
         </div>
         <div className="mt-2 text-center text-[1rem] text-neutral-400">

@@ -20,8 +20,7 @@ export default function Home() {
         <ProfilePhoto />
         <Skills />
         <WorkExperience />
-        {/*
-        <References /> */}
+        <References />
       </div>
     </main>
   );
