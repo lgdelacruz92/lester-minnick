@@ -1,7 +1,7 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { ReferenceData } from "@/lib/types";
+import { ReferenceData, TransitionType } from "@/lib/types";
 import References from "../home/references/references";
 
 const referencesData: Array<ReferenceData> = [
@@ -22,8 +22,6 @@ const referencesData: Array<ReferenceData> = [
       "Lester's a productive engineer, and a proactive, good-natured teammate. He was well-respected by his team and manager, and I hope to work with him again in the future!",
   },
 ];
-
-type TransitionType = "open" | "close" | "change";
 
 export default function Playground() {
   const [transition, setTransition] = useState<TransitionType>("close");

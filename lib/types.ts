@@ -14,3 +14,5 @@ export type ReferenceData = {
   title: string;
   review: string;
 };
+
+export type TransitionType = "open" | "close" | "change";
