@@ -1,6 +1,6 @@
 import { ReferenceData } from "@/lib/types";
 import ReferenceItemInfo from "./reference-item-info";
-export default function References({
+export default function ReferencesList({
   referencesData,
   onReferenceInfoClick,
 }: {
