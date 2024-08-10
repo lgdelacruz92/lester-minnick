@@ -91,7 +91,11 @@ export default function References() {
         }
         break;
       case "change":
-        setTransition("close");
+        if (curRefId === selectedReferenceId) {
+          setTransition("close");
+        } else {
+          setTransition("change");
+        }
         break;
       default:
         break;
