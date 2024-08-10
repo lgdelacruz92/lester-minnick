@@ -22,10 +22,10 @@ export default function ReferenceItemInfo({
         height={100}
         className="h-[32px] w-[32px] rounded-full border-2 border-slate-50 shadow-lg sm:h-[64px] sm:w-[64px]"
       />
-      <div className="text-super-subscript text-white sm:text-subscript">
+      <div className="text-super-subscript text-center text-white sm:text-subscript">
         {data.name}
       </div>
-      <div className="text-super-subscript font-bold text-white sm:text-subscript">
+      <div className="text-super-subscript text-center font-bold text-white sm:text-subscript">
         {data.title}
       </div>
     </div>
