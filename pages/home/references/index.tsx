@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { TransitionType, ReferenceData } from "@/lib/types";
+import { TransitionType } from "@/lib/types";
 import { AnimatePresence, motion } from "framer-motion";
 import ReferencesList from "./references-list";
+import { referencesData } from "@/static-data/references-data";
 
 // const data = [
 //   {
@@ -55,28 +56,9 @@ import ReferencesList from "./references-list";
 //   },
 // ];
 
-const referencesData: Array<ReferenceData> = [
-  {
-    id: "1",
-    name: "Jeffrey Eubanks",
-    src: "/images/jeff.jpeg",
-    title: "Previous Manager",
-    review:
-      "Lester was a level 2 software engineer on a development team that I managed. Shortly after hiring him, I was quickly impressed by his willingness and ability to dive into unfamiliar territory and make progress with very ambiguous requirements. Lester values modern software development practices and has very up-to-date knowledge on the latest tools, technologies, and practices. Given a daunting task in a complex codebase, he is not afraid to dive in and figure out how to get the job done. I also valued Lester’s willingness to unblock teammates and provide suggestions when people were stuck on a problem. Overall, Lester is a productive software engineer who excels at solving challenging technical problems.",
-  },
-  {
-    id: "2",
-    name: "Shinji Kuwayama",
-    src: "/images/shinji.jpeg",
-    title: "Previous CTO",
-    review:
-      "Lester's a productive engineer, and a proactive, good-natured teammate. He was well-respected by his team and manager, and I hope to work with him again in the future!",
-  },
-];
-
 export default function References() {
   const [transition, setTransition] = useState<TransitionType>("close");
-  const [curRefId, setCurRefId] = useState<string>(referencesData[0].id);
+  const [curRefId, setCurRefId] = useState<string | null>(null);
 
   const handleReferenceClick = (selectedReferenceId: string) => {
     switch (transition) {
@@ -130,7 +112,7 @@ export default function References() {
               exit={{ transition: { duration: 0.5 } }}
               className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
             >
-              {getReview(curRefId)}
+              {curRefId && getReview(curRefId)}
             </motion.div>
           </>
         )}
@@ -152,7 +134,7 @@ export default function References() {
             exit={{ transition: { duration: 0.5 } }}
             className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
           >
-            {getReview(curRefId)}
+            {curRefId && getReview(curRefId)}
           </motion.div>
         )}
         {transition === "change" && (
@@ -173,14 +155,11 @@ export default function References() {
             exit={{ transition: { duration: 0.5 } }}
             className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
           >
-            {getReview(curRefId)}
+            {curRefId && getReview(curRefId)}
           </motion.div>
         )}
       </AnimatePresence>
-      <ReferencesList
-        referencesData={referencesData}
-        onReferenceInfoClick={handleReferenceClick}
-      />
+      <ReferencesList onReferenceInfoClick={handleReferenceClick} />
     </div>
   );
 }

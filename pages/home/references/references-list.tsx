@@ -1,10 +1,8 @@
-import { ReferenceData } from "@/lib/types";
 import ReferenceItemInfo from "./reference-item-info";
+import { referencesData } from "@/static-data/references-data";
 export default function ReferencesList({
-  referencesData,
   onReferenceInfoClick,
 }: {
-  referencesData: Array<ReferenceData>;
   onReferenceInfoClick: (referenceId: string) => void;
 }) {
   return (
