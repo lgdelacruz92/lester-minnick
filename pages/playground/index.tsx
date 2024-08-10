@@ -20,15 +20,18 @@ function ReferenceItemInfo({
 }) {
   return (
     <div
-      className="flex flex-col items-center"
-      onClick={() => onReferenceClick(data.id)}
+      className="z-1 flex cursor-pointer flex-col items-center"
+      onClick={(e) => {
+        e.preventDefault();
+        onReferenceClick(data.id);
+      }}
     >
       <Image
         src={data.src}
         alt={data.name}
         width={100}
         height={100}
-        className="h-[64px] w-[64px] rounded-full border-2 border-slate-50 shadow-lg hover:border-slate-500"
+        className="h-[64px] w-[64px] rounded-full border-2 border-slate-50 shadow-lg"
       />
       <div className="text-subscript text-white">{data.name}</div>
       <div className="text-subscript font-bold text-white">{data.title}</div>
@@ -79,65 +82,104 @@ const referencesData: Array<ReferenceData> = [
 
 type TransitionType = "open" | "close" | "change";
 
-type ReviewState = {
-  transitionType: TransitionType;
-  data: ReferenceData;
-};
-
-type ReviewStateAction = {
-  currentTransitionType: TransitionType;
-  newData: ReferenceData | null;
-};
-
-const initialReview: ReviewState = {
-  transitionType: "close",
-  data: referencesData[0],
-};
-
-function animationReducer(
-  state: ReviewState,
-  action: ReviewStateAction,
-): ReviewState {
-  switch (action.currentTransitionType) {
-    case "open":
-      return { ...state, transitionType: "open", data: action.newData };
-    case "close":
-      return { ...state, transitionType: "close" };
-    case "change":
-      return { ...state, transitionType: "change", data: action.newData };
-    default:
-      throw new Error();
-  }
-}
-
 export default function Playground() {
-  const [state, dispatch] = useReducer(animationReducer, initialReview);
+  const [transition, setTransition] = useState<TransitionType>("close");
+  const [curRefId, setCurRefId] = useState<string>(referencesData[0].id);
 
   const handleReferenceClick = (selectedReferenceId: string) => {
-    const currentId = state.data.id;
-    if (currentId === selectedReferenceId) {
-      dispatch({ currentTransitionType: "close", newData: null });
+    switch (transition) {
+      case "close":
+        setTransition("open");
+        break;
+      case "open":
+        if (curRefId === selectedReferenceId) {
+          setTransition("close");
+        } else {
+          setTransition("change");
+        }
+        break;
+      case "change":
+        setTransition("close");
+        break;
+      default:
+        break;
     }
+    setCurRefId(selectedReferenceId);
+  };
+
+  const getReview = (id: string): string => {
+    const [refData] = referencesData.filter((d) => d.id === id);
+    return refData.review;
   };
 
   return (
     <div className="w-[500px] bg-card-background">
       <AnimatePresence mode="wait">
-        {/* {state.currentViewStatus === "close" && (
+        {transition === "open" && (
+          <>
+            <motion.div
+              key={`open-${curRefId}`}
+              layoutId={`open-${curRefId}`}
+              initial={{
+                opacity: 0,
+                height: 0,
+                width: "100%",
+              }}
+              animate={{
+                opacity: 1,
+                height: 200,
+                width: "100%",
+                transition: { duration: 1 },
+              }}
+              exit={{ transition: { duration: 0.5 } }}
+              className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
+            >
+              {getReview(curRefId)}
+            </motion.div>
+          </>
+        )}
+        {transition === "close" && (
           <motion.div
-            layoutId={`${referenceId}`}
+            key={`close-${curRefId}`}
+            layoutId={`close-${curRefId}`}
             initial={{
+              opacity: 1,
+              height: 200,
+              width: "100%",
+            }}
+            animate={{
               opacity: 0,
               height: 0,
               width: "100%",
+              transition: { duration: 1 },
             }}
-            animate={{ opacity: 1, height: 200, transition: { duration: 1 } }}
             exit={{ transition: { duration: 0.5 } }}
-            className="w-full bg-slate-300 text-white"
+            className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
           >
-            {showReview}
+            {getReview(curRefId)}
           </motion.div>
-        )} */}
+        )}
+        {transition === "change" && (
+          <motion.div
+            key={`change-${curRefId}`}
+            layoutId={`change-${curRefId}`}
+            initial={{
+              opacity: 0,
+              height: 200,
+              width: "100%",
+            }}
+            animate={{
+              opacity: 1,
+              height: 200,
+              width: "100%",
+              transition: { duration: 1 },
+            }}
+            exit={{ transition: { duration: 0.5 } }}
+            className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
+          >
+            {getReview(curRefId)}
+          </motion.div>
+        )}
       </AnimatePresence>
       <References
         referencesData={referencesData}
