@@ -40,16 +40,63 @@ export default function References() {
   };
 
   return (
-    <div className="w-[500px] bg-card-background">
-      <AnimatePresence mode="wait">
-        {transition === "open" && (
-          <>
+    <div className="divide-y divide-divider-color shadow-inner">
+      <div className="w-full text-center text-important-text text-white">
+        References
+      </div>
+      <div className="w-[350px] overflow-x-scroll bg-card-background sm:w-full">
+        <AnimatePresence mode="wait">
+          {transition === "open" && (
+            <>
+              <motion.div
+                key={`open-${curRefId}`}
+                layoutId={`open-${curRefId}`}
+                initial={{
+                  opacity: 0,
+                  height: 0,
+                  width: "100%",
+                }}
+                animate={{
+                  opacity: 1,
+                  height: 200,
+                  width: "100%",
+                  transition: { duration: 1 },
+                }}
+                exit={{ transition: { duration: 0.5 } }}
+                className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
+              >
+                {curRefId && getReview(curRefId)}
+              </motion.div>
+            </>
+          )}
+          {transition === "close" && (
             <motion.div
-              key={`open-${curRefId}`}
-              layoutId={`open-${curRefId}`}
+              key={`close-${curRefId}`}
+              layoutId={`close-${curRefId}`}
               initial={{
+                opacity: 1,
+                height: 200,
+                width: "100%",
+              }}
+              animate={{
                 opacity: 0,
                 height: 0,
+                width: "100%",
+                transition: { duration: 1 },
+              }}
+              exit={{ transition: { duration: 0.5 } }}
+              className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
+            >
+              {curRefId && getReview(curRefId)}
+            </motion.div>
+          )}
+          {transition === "change" && (
+            <motion.div
+              key={`change-${curRefId}`}
+              layoutId={`change-${curRefId}`}
+              initial={{
+                opacity: 0,
+                height: 200,
                 width: "100%",
               }}
               animate={{
@@ -59,56 +106,14 @@ export default function References() {
                 transition: { duration: 1 },
               }}
               exit={{ transition: { duration: 0.5 } }}
-              className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
+              className="max-w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
             >
               {curRefId && getReview(curRefId)}
             </motion.div>
-          </>
-        )}
-        {transition === "close" && (
-          <motion.div
-            key={`close-${curRefId}`}
-            layoutId={`close-${curRefId}`}
-            initial={{
-              opacity: 1,
-              height: 200,
-              width: "100%",
-            }}
-            animate={{
-              opacity: 0,
-              height: 0,
-              width: "100%",
-              transition: { duration: 1 },
-            }}
-            exit={{ transition: { duration: 0.5 } }}
-            className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
-          >
-            {curRefId && getReview(curRefId)}
-          </motion.div>
-        )}
-        {transition === "change" && (
-          <motion.div
-            key={`change-${curRefId}`}
-            layoutId={`change-${curRefId}`}
-            initial={{
-              opacity: 0,
-              height: 200,
-              width: "100%",
-            }}
-            animate={{
-              opacity: 1,
-              height: 200,
-              width: "100%",
-              transition: { duration: 1 },
-            }}
-            exit={{ transition: { duration: 0.5 } }}
-            className="max-w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
-          >
-            {curRefId && getReview(curRefId)}
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <ReferencesList onReferenceInfoClick={handleReferenceClick} />
+          )}
+        </AnimatePresence>
+        <ReferencesList onReferenceInfoClick={handleReferenceClick} />
+      </div>
     </div>
   );
 }
