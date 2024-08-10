@@ -2,29 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { ReferenceData } from "@/lib/types";
-import ReferenceItemInfo from "../home/references/reference-item-info";
-
-function References({
-  referencesData,
-  onReferenceInfoClick,
-}: {
-  referencesData: Array<ReferenceData>;
-  onReferenceInfoClick: (referenceId: string) => void;
-}) {
-  return (
-    <div className="flex flex-row gap-2 p-4">
-      {referencesData.map((data, index) => {
-        return (
-          <ReferenceItemInfo
-            key={`${data.name}-${index}`}
-            data={data}
-            onReferenceClick={onReferenceInfoClick}
-          />
-        );
-      })}
-    </div>
-  );
-}
+import References from "../home/references/references";
 
 const referencesData: Array<ReferenceData> = [
   {
