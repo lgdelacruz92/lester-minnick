@@ -1,15 +1,8 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useReducer, useState } from "react";
-
-type ReferenceData = {
-  id: string;
-  name: string;
-  src: string;
-  title: string;
-  review: string;
-};
+import { useState } from "react";
+import { ReferenceData } from "@/lib/types";
 
 function ReferenceItemInfo({
   data,

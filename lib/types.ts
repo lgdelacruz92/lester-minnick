@@ -6,3 +6,11 @@ export type ExperienceDetailsData = {
   duration: string;
   src: string;
 };
+
+export type ReferenceData = {
+  id: string;
+  name: string;
+  src: string;
+  title: string;
+  review: string;
+};
