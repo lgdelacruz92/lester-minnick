@@ -46,7 +46,7 @@ export const referencesData: Array<ReferenceData> = [
     id: "6",
     title: "Former Teammate",
     name: "Logan Scheiner",
-    src: "/images/josh.jpeg",
+    src: "/images/logan.jpeg",
     review:
       "I met Lester at TrueVision Systems, Inc. and worked alongside him developing software for approximately one year. Lester was a great asset to our team: his exploratory nature is well suited to unraveling complex problems. Whether it's integrating new technologies to existing systems or simply wading into uncharted code, Lester's able to dive in, learn about the environment, and make considerable progress. What I see in Lester is a true passion for learning new skills, technologies, and processes. It's a pleasure to work and collaborate with Lester. I always feel comfortable asking him for assistance or clarification. While pairing and during code review he takes his time to elaborate on questions and gives and receives constructive criticism well. His sincere and energetic personality is a welcome addition to any day of the week.",
   },
