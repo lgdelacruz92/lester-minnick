@@ -9,6 +9,7 @@ import EmailIcon from "@/components/icons/email-icon";
 import DesktopBlock from "@/components/layouts/desktop-block";
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import YoutubeIcon from "@/components/icons/youtube-icon";
 
 const Modal = dynamic(() => import("@/components/common/modal"));
 
@@ -136,6 +137,12 @@ export default function ProfilePhoto() {
             className="rounded hover:border-2"
           >
             <GithubIcon fill={"white"} />
+          </a>
+          <a
+            href="https://www.youtube.com/@breakdancer100/videos"
+            className="rounded hover:border-2"
+          >
+            <YoutubeIcon fill={"white"} />
           </a>
         </div>
       </div>
