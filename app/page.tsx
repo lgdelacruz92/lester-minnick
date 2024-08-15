@@ -2,8 +2,6 @@ import { Inter } from "next/font/google";
 import ProfilePhoto from "./home/profile-photo";
 import Skills from "./home/skills";
 import dynamic from "next/dynamic";
-import MobileBlock from "@/components/layouts/mobile-block";
-import TabletBlock from "@/components/layouts/tablet-block";
 
 const inter = Inter({ subsets: ["latin"] });
 
