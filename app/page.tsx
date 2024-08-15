@@ -16,25 +16,12 @@ const References = dynamic(() => import("./home/references"));
 export default function Home() {
   return (
     <main className={`${inter.className}`}>
-      <MobileBlock>
-        <div
-          data-testid="mobile-container"
-          className="flex flex-col items-center rounded bg-card-background shadow-xl"
-        >
-          <ProfilePhoto />
-          <Skills />
-          <WorkExperience />
-          <References />
-        </div>
-      </MobileBlock>
-      <TabletBlock>
-        <div
-          data-testid="tablet-container"
-          className="flex flex-col items-center rounded bg-card-background shadow-xl"
-        >
-          <ProfilePhoto />
-        </div>
-      </TabletBlock>
+      <div className="flex flex-col items-center rounded bg-card-background shadow-xl">
+        <ProfilePhoto />
+        <Skills />
+        <WorkExperience />
+        <References />
+      </div>
     </main>
   );
 }

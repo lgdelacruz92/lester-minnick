@@ -120,7 +120,7 @@ export default function ProfilePhoto() {
           width={384}
           src={SelfImage.src}
           alt="Self"
-          className="!m-0 h-40 h-[65px] w-40 w-[65px] rounded-full border-2 border-white object-cover object-top !p-0"
+          className="rounded-full border-2 border-white object-cover object-top"
         />
         <div className="mt-4 flex w-full flex-row items-center justify-center space-x-4 opacity-50">
           <a
