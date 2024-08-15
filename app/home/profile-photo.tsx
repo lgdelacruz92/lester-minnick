@@ -6,7 +6,6 @@ import LinkedInIcon from "@/components/icons/linked-in-icon";
 import GithubIcon from "@/components/icons/github-icon";
 import MobileIcon from "@/components/icons/mobile-icon";
 import EmailIcon from "@/components/icons/email-icon";
-import DesktopBlock from "@/components/layouts/desktop-block";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import YoutubeIcon from "@/components/icons/youtube-icon";
@@ -67,24 +66,22 @@ export default function ProfilePhoto() {
         <div className="mt-2 text-center text-[1rem] text-neutral-400">
           {SelfData.subtitle}
         </div>
-        <DesktopBlock>
-          <div className="mt-4 flex flex-col items-center">
-            <div className="text-[1.25rem] text-white">
-              Professional Experience
-            </div>
-            <div className="grid grid-cols-5">
-              {experiencePillData.map((pillData, index) => {
-                return (
-                  <ExperiencePill
-                    key={`${pillData.name}-${index}`}
-                    src={pillData.src}
-                    name={pillData.name}
-                  />
-                );
-              })}
-            </div>
+        <div className="mt-4 flex flex-col items-center">
+          <div className="text-[1.25rem] text-white">
+            Professional Experience
           </div>
-        </DesktopBlock>
+          <div className="grid grid-cols-5">
+            {experiencePillData.map((pillData, index) => {
+              return (
+                <ExperiencePill
+                  key={`${pillData.name}-${index}`}
+                  src={pillData.src}
+                  name={pillData.name}
+                />
+              );
+            })}
+          </div>
+        </div>
         <div className="flex flex-row justify-center">
           <button
             onClick={() => setShowContacts(true)}
