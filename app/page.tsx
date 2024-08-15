@@ -14,7 +14,7 @@ const References = dynamic(() => import("./home/references"));
 export default function Home() {
   return (
     <main className={`${inter.className}`}>
-      <div className="flex flex-col items-center rounded bg-card-background shadow-xl">
+      <div className="container rounded bg-card-background shadow-xl">
         <ProfilePhoto />
         <Skills />
         <WorkExperience />
