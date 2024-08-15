@@ -215,8 +215,8 @@ const SkillsDisplay = (props: {
   return (
     <div className="relative mt-2 flex flex-col items-center opacity-80">
       {props.icon}
-      <div className="text-[.8rem] sm:text-[1rem]">{props.name}</div>
-      <div className="absolute right-0 top-0 flex flex-col items-center rounded-full bg-subscript-background p-2 text-super-script text-red-500 sm:p-1 sm:text-[.8rem]">
+      <div className="text-[.8rem] text-[1rem]">{props.name}</div>
+      <div className="absolute right-0 top-0 flex flex-col items-center rounded-full bg-subscript-background p-1 p-2 text-[.8rem] text-super-script text-red-500">
         <div className="leading-none text-white">{`${props.years}+`}</div>
         <div className="text-[.5rem] leading-none text-white">years</div>
       </div>

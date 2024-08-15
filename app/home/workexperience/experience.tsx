@@ -229,7 +229,7 @@ export default function Experience() {
                     duration: 0.5,
                   },
                 }}
-                className="sm:white-top-down-gradient relative grow overflow-y-scroll pt-4 text-tprimary sm:h-full"
+                className="white-top-down-gradient relative h-full grow overflow-y-scroll pt-4 text-tprimary"
               >
                 <ul className="list-disc">
                   {active.description.map((desc, i) => {

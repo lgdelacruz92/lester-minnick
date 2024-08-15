@@ -15,10 +15,10 @@ const References = dynamic(() => import("./home/references"));
 export default function Home() {
   return (
     <main
-      className={`flex w-full flex-col items-center justify-between bg-card-background ${inter.className} sm:bg-main-background`}
+      className={`flex w-full flex-col items-center justify-between bg-card-background ${inter.className} bg-main-background`}
     >
       <MobileBlock>
-        <div className="mt-4 flex max-w-[500px] flex-col items-center sm:mt-0 sm:w-full sm:rounded sm:bg-card-background sm:shadow-xl">
+        <div className="mt-0 mt-4 flex w-full max-w-[500px] flex-col items-center rounded bg-card-background shadow-xl">
           <ProfilePhoto />
           <Skills />
           <WorkExperience />

@@ -20,12 +20,12 @@ export default function ReferenceItemInfo({
         alt={data.name}
         width={100}
         height={100}
-        className="h-[32px] w-[32px] rounded-full border-2 border-slate-50 shadow-lg sm:h-[64px] sm:w-[64px]"
+        className="h-[32px] h-[64px] w-[32px] w-[64px] rounded-full border-2 border-slate-50 shadow-lg"
       />
-      <div className="text-super-subscript text-center text-white sm:text-subscript">
+      <div className="text-center text-subscript text-super-subscript text-white">
         {data.name}
       </div>
-      <div className="text-super-subscript text-center font-bold text-white sm:text-subscript">
+      <div className="text-center text-subscript text-super-subscript font-bold text-white">
         {data.title}
       </div>
     </div>

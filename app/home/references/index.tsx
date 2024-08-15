@@ -44,7 +44,7 @@ export default function References() {
       <div className="w-full text-center text-important-text text-white">
         References
       </div>
-      <div className="w-[350px] overflow-x-scroll bg-card-background sm:w-full">
+      <div className="w-[350px] w-full overflow-x-scroll bg-card-background">
         <AnimatePresence mode="wait">
           {transition === "open" && (
             <>

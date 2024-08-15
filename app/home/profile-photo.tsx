@@ -115,7 +115,7 @@ export default function ProfilePhoto() {
         </Modal>
       </div>
       <div className="flex flex-col items-center p-4">
-        <div className="mb-2 text-center text-[1rem] font-bold text-white sm:text-[1.5rem]">
+        <div className="mb-2 text-center text-[1.5rem] text-[1rem] font-bold text-white">
           {SelfData.name}
         </div>
         <Image
@@ -123,7 +123,7 @@ export default function ProfilePhoto() {
           width={384}
           src={SelfImage.src}
           alt="Self"
-          className="!m-0 h-[65px] w-[65px] rounded-full border-2 border-white object-cover object-top !p-0 sm:h-40 sm:w-40"
+          className="!m-0 h-40 h-[65px] w-40 w-[65px] rounded-full border-2 border-white object-cover object-top !p-0"
         />
         <div className="mt-4 flex w-full flex-row items-center justify-center space-x-4 opacity-50">
           <a
