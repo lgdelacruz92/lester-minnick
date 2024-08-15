@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import ProfilePhoto from "./home/profile-photo";
 import Skills from "./home/skills";
 import dynamic from "next/dynamic";
+import MobileBlock from "@/components/layouts/mobile-block";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,12 +17,14 @@ export default function Home() {
     <main
       className={`flex w-full flex-col items-center justify-between bg-card-background ${inter.className} sm:bg-main-background`}
     >
-      <div className="mt-4 flex max-w-[500px] flex-col items-center sm:mt-0 sm:w-full sm:rounded sm:bg-card-background sm:shadow-xl">
-        <ProfilePhoto />
-        <Skills />
-        <WorkExperience />
-        <References />
-      </div>
+      <MobileBlock>
+        <div className="mt-4 flex max-w-[500px] flex-col items-center sm:mt-0 sm:w-full sm:rounded sm:bg-card-background sm:shadow-xl">
+          <ProfilePhoto />
+          <Skills />
+          <WorkExperience />
+          <References />
+        </div>
+      </MobileBlock>
     </main>
   );
 }
