@@ -22,7 +22,7 @@ export default function Home() {
         <h1>This screen size is not supported</h1>
       </ScreenNotSupportedBlock>
       <MobileBlock>
-        <div className="mt-0 mt-4 flex w-full max-w-[500px] flex-col items-center rounded bg-card-background shadow-xl">
+        <div className="mt-0 mt-4 flex w-full flex-col items-center rounded bg-card-background shadow-xl">
           <ProfilePhoto />
           <Skills />
           <WorkExperience />

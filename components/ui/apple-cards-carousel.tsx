@@ -102,12 +102,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
             )}
           ></div>
 
-          <div
-            className={cn(
-              "flex flex-row justify-start gap-4 pl-4",
-              "mx-auto max-w-64", // remove max-w-4xl if you want the carousel to span the full width of its container
-            )}
-          >
+          <div className={cn("flex flex-row justify-start gap-4 pl-4")}>
             {items.map((item, index) => (
               <motion.div
                 initial={{
@@ -125,7 +120,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                   },
                 }}
                 key={"card" + index}
-                className="md:last:pr-[33%] rounded-3xl last:pr-[5%]"
+                className="rounded-3xl last:pr-[5%] md:last:pr-[33%]"
               >
                 {item}
               </motion.div>
@@ -134,18 +129,18 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         </div>
         <div className="mr-10 flex justify-end gap-2 pt-4">
           <button
-            className="bg-gray-100 relative z-40 flex h-10 w-10 items-center justify-center rounded-full disabled:opacity-50"
+            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 disabled:opacity-50"
             onClick={scrollLeft}
             disabled={!canScrollLeft}
           >
-            <IconArrowNarrowLeft className="text-gray-500 h-6 w-6" />
+            <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
           </button>
           <button
-            className="bg-gray-100 relative z-40 flex h-10 w-10 items-center justify-center rounded-full disabled:opacity-50"
+            className="relative z-40 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 disabled:opacity-50"
             onClick={scrollRight}
             disabled={!canScrollRight}
           >
-            <IconArrowNarrowRight className="text-gray-500 h-6 w-6" />
+            <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
           </button>
         </div>
       </div>
@@ -203,7 +198,7 @@ export const Card = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="bg-black/80 fixed inset-0 h-full w-full backdrop-blur-lg"
+              className="fixed inset-0 h-full w-full bg-black/80 backdrop-blur-lg"
             />
             <motion.div
               initial={{ opacity: 0 }}
@@ -211,23 +206,23 @@ export const Card = ({
               exit={{ opacity: 0 }}
               ref={containerRef}
               layoutId={layout ? `card-${card.title}` : undefined}
-              className="bg-white dark:bg-neutral-900 md:p-10 relative z-[60] mx-auto my-10 h-fit max-w-5xl rounded-3xl p-4 font-sans"
+              className="relative z-[60] mx-auto my-10 h-fit rounded-3xl bg-white p-4 font-sans md:p-10 dark:bg-neutral-900"
             >
               <button
-                className="bg-black dark:bg-white sticky right-0 top-4 ml-auto flex h-8 w-8 items-center justify-center rounded-full"
+                className="sticky right-0 top-4 ml-auto flex h-8 w-8 items-center justify-center rounded-full bg-black dark:bg-white"
                 onClick={handleClose}
               >
-                <IconX className="text-neutral-100 dark:text-neutral-900 h-6 w-6" />
+                <IconX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
               </button>
               <motion.p
                 layoutId={layout ? `category-${card.title}` : undefined}
-                className="text-black dark:text-white text-base font-medium"
+                className="text-base font-medium text-black dark:text-white"
               >
                 {card.category}
               </motion.p>
               <motion.p
                 layoutId={layout ? `title-${card.title}` : undefined}
-                className="md:text-5xl text-neutral-700 dark:text-white mt-4 text-2xl font-semibold"
+                className="mt-4 text-2xl font-semibold text-neutral-700 md:text-5xl dark:text-white"
               >
                 {card.title}
               </motion.p>
@@ -241,17 +236,17 @@ export const Card = ({
         onClick={handleOpen}
         className="relative z-10 mt-4 flex flex-col items-center justify-center overflow-hidden rounded bg-[rgb(89,120,162)] p-2 shadow-xl"
       >
-        <div className="from-black/50 via-transparent to-transparent pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b"></div>
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent"></div>
         <div className="relative z-40">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-white text-left text-center font-sans text-base font-light"
+            className="text-left text-center font-sans text-base font-light text-white"
           >
             {card.category}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="text-white font-sans[text-wrap:balance] mt-2 text-center text-lg font-bold"
+            className="font-sans[text-wrap:balance] mt-2 text-center text-lg font-bold text-white"
           >
             {card.title}
           </motion.p>

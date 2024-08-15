@@ -106,7 +106,7 @@ export default function References() {
                 transition: { duration: 1 },
               }}
               exit={{ transition: { duration: 0.5 } }}
-              className="max-w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
+              className="overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
             >
               {curRefId && getReview(curRefId)}
             </motion.div>
