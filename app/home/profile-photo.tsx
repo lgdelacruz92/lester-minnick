@@ -58,7 +58,7 @@ function ExperiencePill({ src, name }: { src: string; name: string }) {
 export default function ProfilePhoto() {
   const [showContacts, setShowContacts] = useState<boolean>(false);
   return (
-    <div className="flex w-full flex-row items-stretch divide-x divide-divider-color shadow-lg">
+    <div className="mobile:divide shadow-lg mobile:flex mobile:flex-row mobile:divide-x mobile:divide-slate-400">
       <div className="grow p-4">
         <div className="text-center text-important-text font-bold text-white">
           {SelfData.title}
