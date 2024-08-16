@@ -13,9 +13,7 @@ const config: Config = {
     },
     extend: {
       screens: {
-        mobile: "640px",
-        tablet: "1024px",
-        desktop: "1280px",
+        "not-mobile": "640px",
       },
       colors: {
         primary: "#F5EDED",
