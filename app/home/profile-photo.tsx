@@ -60,36 +60,38 @@ export default function ProfilePhoto() {
   const [showContacts, setShowContacts] = useState<boolean>(false);
   return (
     <div className="not-mobile:divide not-mobile:divide-white/20 not-mobile:divide-x not-mobile:flex not-mobile:flex-row shadow-lg">
-      <div className="grow p-4">
-        <div className="text-center text-important-text font-bold text-white">
-          {SelfData.title}
-        </div>
-        <div className="mt-2 text-center text-[1rem] text-neutral-400">
-          {SelfData.subtitle}
-        </div>
-        <div className="mt-4 flex flex-col items-center">
-          <div className="text-[1.25rem] text-white">
-            Professional Experience
+      <div className="not-mobile:divide not-mobile:divide-white/20 not-mobile:divide-y grow">
+        <div id="header" className="not-mobile:shadow-lg p-4">
+          <div className="text-center text-important-text font-bold text-white">
+            {SelfData.title}
           </div>
-          <div className="grid grid-cols-5">
-            {experiencePillData.map((pillData, index) => {
-              return (
-                <ExperiencePill
-                  key={`${pillData.name}-${index}`}
-                  src={pillData.src}
-                  name={pillData.name}
-                />
-              );
-            })}
+          <div className="mt-2 text-center text-[1rem] text-neutral-400">
+            {SelfData.subtitle}
           </div>
-        </div>
-        <div className="flex flex-row justify-center">
-          <button
-            onClick={() => setShowContacts(true)}
-            className={`mt-2 rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white ${showContacts ? "pointer-events-none" : ""}`}
-          >
-            Contacts
-          </button>
+          <div className="mt-4 flex flex-col items-center">
+            <div className="text-[1.25rem] text-white">
+              Professional Experience
+            </div>
+            <div className="grid grid-cols-5">
+              {experiencePillData.map((pillData, index) => {
+                return (
+                  <ExperiencePill
+                    key={`${pillData.name}-${index}`}
+                    src={pillData.src}
+                    name={pillData.name}
+                  />
+                );
+              })}
+            </div>
+          </div>
+          <div className="flex flex-row justify-center">
+            <button
+              onClick={() => setShowContacts(true)}
+              className={`mt-2 rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white ${showContacts ? "pointer-events-none" : ""}`}
+            >
+              Contacts
+            </button>
+          </div>
         </div>
         <div className="not-mobile:block hidden">
           <Skills />
