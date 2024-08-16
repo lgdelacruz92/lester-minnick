@@ -3,8 +3,9 @@ export default function OpenAIIcon(props: any) {
     <svg
       stroke={props.stroke ? props.stroke : "var(--cui-black)"}
       fill={props.fill ? props.fill : "var(--cui-black)"}
-      height={props.height ? props.height : 24}
-      width={props.width ? props.width : 24}
+      height="100%"
+      width="100%"
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 2406 2406"
     >

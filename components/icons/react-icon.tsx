@@ -6,8 +6,9 @@ export default function ReactIcon(props: any) {
       strokeWidth="0"
       version="1.1"
       viewBox="0 0 34 32"
-      height={props.height ? props.height : 24}
-      width={props.width ? props.width : 24}
+      height="100%"
+      width="100%"
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M19.314 15.987c0 1.321-1.071 2.392-2.392 2.392s-2.392-1.071-2.392-2.392c0-1.321 1.071-2.392 2.392-2.392s2.392 1.071 2.392 2.392z"></path>
