@@ -9,6 +9,7 @@ import EmailIcon from "@/components/icons/email-icon";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import YoutubeIcon from "@/components/icons/youtube-icon";
+import Skills from "./skills";
 
 const Modal = dynamic(() => import("@/components/common/modal"));
 
@@ -89,6 +90,9 @@ export default function ProfilePhoto() {
           >
             Contacts
           </button>
+        </div>
+        <div className="not-mobile:block hidden">
+          <Skills />
         </div>
         <Modal
           showModal={showContacts}

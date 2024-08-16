@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-    --card-background: #363B3C
+    --card-background-1: #363B3C
 }
 
 .radial-gradient-white {
-    background: radial-gradient(white, var(--card-background));
+    background: radial-gradient(white, var(--card-background-1));
 }
 
 .white-top-down-gradient {

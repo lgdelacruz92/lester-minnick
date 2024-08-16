@@ -14,9 +14,11 @@ const References = dynamic(() => import("./home/references"));
 export default function Home() {
   return (
     <main className={`${inter.className}`}>
-      <div className="container rounded bg-card-background shadow-xl">
+      <div className="bg-card-background-1 container rounded shadow-xl">
         <ProfilePhoto />
-        <Skills />
+        <div className="not-mobile:hidden block">
+          <Skills />
+        </div>
         <WorkExperience />
         <References />
       </div>
