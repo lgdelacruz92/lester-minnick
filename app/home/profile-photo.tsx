@@ -10,6 +10,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import YoutubeIcon from "@/components/icons/youtube-icon";
 import Skills from "./skills";
+import WorkExperience from "./workexperience";
 
 const Modal = dynamic(() => import("@/components/common/modal"));
 
@@ -93,7 +94,9 @@ export default function ProfilePhoto() {
             </button>
           </div>
         </div>
-
+        <div className="not-mobile:block hidden">
+          <WorkExperience />
+        </div>
         <Modal
           showModal={showContacts}
           setShowModal={() => setShowContacts(false)}

@@ -19,7 +19,9 @@ export default function Home() {
         <div className="not-mobile:hidden block">
           <Skills />
         </div>
-        <WorkExperience />
+        <div className="not-mobile:hidden block">
+          <WorkExperience />
+        </div>
         <References />
       </div>
     </main>
