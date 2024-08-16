@@ -27,8 +27,7 @@ const frontEndSkillsData = [
       <ReactIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -36,7 +35,11 @@ const frontEndSkillsData = [
     name: "Vue",
     years: 1,
     icon: (
-      <VueIcon fill="white" stroke="white" height={iconSize} width={iconSize} />
+      <VueIcon
+        fill="white"
+        stroke="white"
+        className="not-mobile:size-[32px] size-[64px]"
+      />
     ),
   },
   {
@@ -46,8 +49,7 @@ const frontEndSkillsData = [
       <TypescriptIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -58,8 +60,7 @@ const frontEndSkillsData = [
       <JavascriptIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -70,8 +71,7 @@ const frontEndSkillsData = [
       <HtmlIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -79,7 +79,11 @@ const frontEndSkillsData = [
     name: "CSS3",
     years: 10,
     icon: (
-      <CSSIcon fill="white" stroke="white" height={iconSize} width={iconSize} />
+      <CSSIcon
+        fill="white"
+        stroke="white"
+        className="not-mobile:size-[32px] size-[64px]"
+      />
     ),
   },
 ];
@@ -94,8 +98,7 @@ const backendSkillsData = [
       <PythonIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -106,8 +109,7 @@ const backendSkillsData = [
       <CSharpIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -119,8 +121,7 @@ const backendSkillsData = [
       <NodeJsIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -128,7 +129,11 @@ const backendSkillsData = [
     name: "Nodejs",
     years: 5,
     icon: (
-      <SqlIcon fill="white" stroke="white" height={iconSize} width={iconSize} />
+      <SqlIcon
+        fill="white"
+        stroke="white"
+        className="not-mobile:size-[32px] size-[64px]"
+      />
     ),
   },
 ];
@@ -143,8 +148,7 @@ const techAndToolsSkillsData = [
       <DockerIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -152,7 +156,11 @@ const techAndToolsSkillsData = [
     name: "Git",
     years: 10,
     icon: (
-      <GitIcon fill="white" stroke="white" height={iconSize} width={iconSize} />
+      <GitIcon
+        fill="white"
+        stroke="white"
+        className="not-mobile:size-[32px] size-[64px]"
+      />
     ),
   },
   {
@@ -162,8 +170,7 @@ const techAndToolsSkillsData = [
       <JiraIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -174,8 +181,7 @@ const techAndToolsSkillsData = [
       <GithubBlackIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -186,8 +192,7 @@ const techAndToolsSkillsData = [
       <VSCodeIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -198,8 +203,7 @@ const techAndToolsSkillsData = [
       <OpenAIIcon
         fill="white"
         stroke="white"
-        height={iconSize}
-        width={iconSize}
+        className="not-mobile:size-[32px] size-[64px]"
       />
     ),
   },
@@ -227,7 +231,7 @@ const SkillsDisplay = (props: {
 export default function Skills() {
   return (
     <div className="mt-4 flex w-full flex-col items-center rounded-md pb-4 shadow-lg">
-      <div className="w-full text-center text-important-text text-white">
+      <div className="not-mobile:text-lg w-full text-center text-important-text text-white">
         Skills
       </div>
       <div className="border-1 w-full opacity-10"></div>
