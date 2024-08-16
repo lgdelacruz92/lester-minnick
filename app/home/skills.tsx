@@ -217,10 +217,12 @@ const SkillsDisplay = (props: {
   icon: React.JSX.Element;
 }) => {
   return (
-    <div className="relative mt-2 flex flex-col items-center opacity-80">
+    <div className="relative flex flex-col items-center opacity-80">
       {props.icon}
-      <div className="text-[.8rem] text-[1rem]">{props.name}</div>
-      <div className="absolute right-0 top-0 flex flex-col items-center rounded-full bg-subscript-background p-1 p-2 text-[.8rem] text-super-script text-red-500">
+      <div className="not-mobile:text-[.5rem] text-[.8rem] text-[1rem]">
+        {props.name}
+      </div>
+      <div className="not-mobile:hidden absolute right-0 top-0 block flex flex-col items-center rounded-full bg-subscript-background p-1 p-2 text-[.8rem] text-super-script text-red-500">
         <div className="leading-none text-white">{`${props.years}+`}</div>
         <div className="text-[.5rem] leading-none text-white">years</div>
       </div>
@@ -230,7 +232,7 @@ const SkillsDisplay = (props: {
 
 export default function Skills() {
   return (
-    <div className="mt-4 flex w-full flex-col items-center rounded-md pb-4 shadow-lg">
+    <div className="not-mobile:m-0 not-mobile:shadow-none flex w-full flex-col items-center rounded-md pb-4 shadow-lg">
       <div className="not-mobile:text-lg w-full text-center text-important-text text-white">
         Skills
       </div>

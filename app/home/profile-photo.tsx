@@ -93,9 +93,7 @@ export default function ProfilePhoto() {
             </button>
           </div>
         </div>
-        <div className="not-mobile:block hidden">
-          <Skills />
-        </div>
+
         <Modal
           showModal={showContacts}
           setShowModal={() => setShowContacts(false)}
@@ -145,8 +143,11 @@ export default function ProfilePhoto() {
             href="https://www.youtube.com/@breakdancer100/videos"
             className="rounded hover:border-2"
           >
-            <YoutubeIcon fill={"white"} />
+            <YoutubeIcon fill={"white"} className="size-[24px]" />
           </a>
+        </div>
+        <div className="not-mobile:block not-mobile:mt-4 hidden">
+          <Skills />
         </div>
       </div>
     </div>
