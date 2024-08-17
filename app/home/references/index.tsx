@@ -31,6 +31,7 @@ export default function References() {
         }
         break;
       default:
+        setTransition("open");
         break;
     }
     setCurRefId(selectedReferenceId);
@@ -51,8 +52,8 @@ export default function References() {
           {transition === "open" && (
             <>
               <motion.div
-                key={transition}
-                layoutId={transition}
+                key={`open-${curRefId}`}
+                layoutId={`open-${curRefId}`}
                 initial={{
                   opacity: 0,
                   height: 0,
@@ -64,7 +65,11 @@ export default function References() {
                   width: "100%",
                   transition: { duration: 1 },
                 }}
-                exit={{ transition: { duration: 0.5 } }}
+                exit={{
+                  opacity: 0,
+                  width: "100%",
+                  transition: { duration: 0.5 },
+                }}
                 className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
               >
                 {curRefId && getReview(curRefId)}
@@ -73,8 +78,8 @@ export default function References() {
           )}
           {transition === "close" && (
             <motion.div
-              key={transition}
-              layoutId={transition}
+              key={`close-${curRefId}`}
+              layoutId={`close-${curRefId}`}
               initial={{
                 opacity: 1,
                 height: 200,
@@ -94,8 +99,8 @@ export default function References() {
           )}
           {transition === "change" && (
             <motion.div
-              key={transition}
-              layoutId={transition}
+              key={`change-${curRefId}`}
+              layoutId={`change-${curRefId}`}
               initial={{
                 opacity: 0,
                 height: 200,
@@ -107,7 +112,9 @@ export default function References() {
                 width: "100%",
                 transition: { duration: 1 },
               }}
-              exit={{ transition: { duration: 0.5 } }}
+              exit={{
+                transition: { duration: 0.5 },
+              }}
               className="overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
             >
               {curRefId && getReview(curRefId)}
