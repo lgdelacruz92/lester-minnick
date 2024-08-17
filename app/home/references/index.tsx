@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TransitionType } from "@/lib/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { referencesData } from "@/static-data/references-data";
@@ -8,8 +8,8 @@ import dynamic from "next/dynamic";
 const ReferencesList = dynamic(() => import("./references-list"));
 
 export default function References() {
-  const [transition, setTransition] = useState<TransitionType>("close");
-  const [curRefId, setCurRefId] = useState<string | null>(null);
+  const [transition, setTransition] = useState<TransitionType | null>(null);
+  const [curRefId, setCurRefId] = useState<string>("1");
 
   const handleReferenceClick = (selectedReferenceId: string) => {
     switch (transition) {
@@ -51,8 +51,8 @@ export default function References() {
           {transition === "open" && (
             <>
               <motion.div
-                key={`open-${curRefId}`}
-                layoutId={`open-${curRefId}`}
+                key={transition}
+                layoutId={transition}
                 initial={{
                   opacity: 0,
                   height: 0,
@@ -73,8 +73,8 @@ export default function References() {
           )}
           {transition === "close" && (
             <motion.div
-              key={`close-${curRefId}`}
-              layoutId={`close-${curRefId}`}
+              key={transition}
+              layoutId={transition}
               initial={{
                 opacity: 1,
                 height: 200,
@@ -94,8 +94,8 @@ export default function References() {
           )}
           {transition === "change" && (
             <motion.div
-              key={`change-${curRefId}`}
-              layoutId={`change-${curRefId}`}
+              key={transition}
+              layoutId={transition}
               initial={{
                 opacity: 0,
                 height: 200,

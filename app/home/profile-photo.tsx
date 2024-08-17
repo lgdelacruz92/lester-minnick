@@ -61,7 +61,7 @@ export default function ProfilePhoto() {
   const [showContacts, setShowContacts] = useState<boolean>(false);
   return (
     <div className="not-mobile:divide not-mobile:divide-white/20 not-mobile:divide-x not-mobile:flex not-mobile:flex-row shadow-lg">
-      <div className="not-mobile:divide not-mobile:grow not-mobile:divide-white/20 not-mobile:divide-y">
+      <div className="not-mobile:divide not-mobile:flex-1 not-mobile:divide-white/20 not-mobile:divide-y">
         <div id="header" className="not-mobile:shadow-lg p-4">
           <div className="text-center text-important-text font-bold text-white">
             {SelfData.title}
