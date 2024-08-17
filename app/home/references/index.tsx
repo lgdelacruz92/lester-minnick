@@ -2,8 +2,10 @@
 import { useState } from "react";
 import { TransitionType } from "@/lib/types";
 import { AnimatePresence, motion } from "framer-motion";
-import ReferencesList from "./references-list";
 import { referencesData } from "@/static-data/references-data";
+import dynamic from "next/dynamic";
+
+const ReferencesList = dynamic(() => import("./references-list"));
 
 export default function References() {
   const [transition, setTransition] = useState<TransitionType>("close");
@@ -40,11 +42,11 @@ export default function References() {
   };
 
   return (
-    <div className="divide-y divide-divider-color shadow-inner">
-      <div className="w-full text-center text-important-text text-white">
+    <div className="flex-1 divide-y divide-divider-color pt-4 shadow-inner">
+      <div className="text-center text-important-text text-white">
         References
       </div>
-      <div className="bg-card-background-1 w-[350px] w-full overflow-x-scroll">
+      <div className="bg-card-background-1">
         <AnimatePresence mode="wait">
           {transition === "open" && (
             <>

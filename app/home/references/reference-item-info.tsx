@@ -9,7 +9,7 @@ export default function ReferenceItemInfo({
 }) {
   return (
     <div
-      className="z-1 flex cursor-pointer flex-col items-center"
+      className="z-3 flex cursor-pointer flex-col items-center"
       onClick={(e) => {
         e.preventDefault();
         onReferenceClick(data.id);

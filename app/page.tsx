@@ -22,7 +22,9 @@ export default function Home() {
         <div className="not-mobile:hidden block">
           <WorkExperience />
         </div>
-        <References />
+        <div className="not-mobile:hidden block">
+          <References />
+        </div>
       </div>
     </main>
   );

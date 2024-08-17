@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-
 import SelfImage from "@/public/images/self.jpg";
 import LinkedInIcon from "@/components/icons/linked-in-icon";
 import GithubIcon from "@/components/icons/github-icon";
@@ -11,6 +10,7 @@ import dynamic from "next/dynamic";
 import YoutubeIcon from "@/components/icons/youtube-icon";
 import Skills from "./skills";
 import WorkExperience from "./workexperience";
+import References from "./references";
 
 const Modal = dynamic(() => import("@/components/common/modal"));
 
@@ -61,7 +61,7 @@ export default function ProfilePhoto() {
   const [showContacts, setShowContacts] = useState<boolean>(false);
   return (
     <div className="not-mobile:divide not-mobile:divide-white/20 not-mobile:divide-x not-mobile:flex not-mobile:flex-row shadow-lg">
-      <div className="not-mobile:divide not-mobile:divide-white/20 not-mobile:divide-y grow">
+      <div className="not-mobile:divide not-mobile:grow not-mobile:divide-white/20 not-mobile:divide-y">
         <div id="header" className="not-mobile:shadow-lg p-4">
           <div className="text-center text-important-text font-bold text-white">
             {SelfData.title}
@@ -94,8 +94,9 @@ export default function ProfilePhoto() {
             </button>
           </div>
         </div>
-        <div className="not-mobile:block hidden">
+        <div className="not-mobile:block not-mobile:flex not-mobile:flex-row not-mobile:divide not-mobile:divide-x not-mobile:divide-divider-color hidden">
           <WorkExperience />
+          <References />
         </div>
         <Modal
           showModal={showContacts}

@@ -229,9 +229,9 @@ export default function Experience() {
                     duration: 0.5,
                   },
                 }}
-                className="sm:white-top-down-gradient relative grow overflow-y-scroll pt-4 text-tprimary sm:h-full"
+                className="relative grow overflow-y-scroll p-8 pt-4 text-tprimary"
               >
-                <ul className="list-disc">
+                <ul className="space-y list-disc">
                   {active.description.map((desc, i) => {
                     return <li key={`description-${i}`}>{desc}</li>;
                   })}
