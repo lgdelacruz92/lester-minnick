@@ -1,15 +1,16 @@
 "use client";
 import Image from "next/image";
-
 import SelfImage from "@/public/images/self.jpg";
 import LinkedInIcon from "@/components/icons/linked-in-icon";
 import GithubIcon from "@/components/icons/github-icon";
 import MobileIcon from "@/components/icons/mobile-icon";
 import EmailIcon from "@/components/icons/email-icon";
-import DesktopBlock from "@/components/layouts/desktop-block";
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import YoutubeIcon from "@/components/icons/youtube-icon";
+import Skills from "./skills";
+import WorkExperience from "./workexperience";
+import References from "./references";
 
 const Modal = dynamic(() => import("@/components/common/modal"));
 
@@ -59,15 +60,15 @@ function ExperiencePill({ src, name }: { src: string; name: string }) {
 export default function ProfilePhoto() {
   const [showContacts, setShowContacts] = useState<boolean>(false);
   return (
-    <div className="flex w-full flex-row items-stretch divide-x divide-divider-color shadow-lg">
-      <div className="grow p-4">
-        <div className="text-center text-important-text font-bold text-white">
-          {SelfData.title}
-        </div>
-        <div className="mt-2 text-center text-[1rem] text-neutral-400">
-          {SelfData.subtitle}
-        </div>
-        <DesktopBlock>
+    <div className="not-mobile:divide not-mobile:divide-white/20 not-mobile:divide-x not-mobile:flex not-mobile:flex-row shadow-lg">
+      <div className="not-mobile:divide not-mobile:flex-1 not-mobile:divide-white/20 not-mobile:divide-y">
+        <div id="header" className="not-mobile:shadow-lg p-4">
+          <div className="text-center text-important-text font-bold text-white">
+            {SelfData.title}
+          </div>
+          <div className="mt-2 text-center text-[1rem] text-neutral-400">
+            {SelfData.subtitle}
+          </div>
           <div className="mt-4 flex flex-col items-center">
             <div className="text-[1.25rem] text-white">
               Professional Experience
@@ -84,14 +85,18 @@ export default function ProfilePhoto() {
               })}
             </div>
           </div>
-        </DesktopBlock>
-        <div className="flex flex-row justify-center">
-          <button
-            onClick={() => setShowContacts(true)}
-            className={`mt-2 rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white ${showContacts ? "pointer-events-none" : ""}`}
-          >
-            Contacts
-          </button>
+          <div className="flex flex-row justify-center">
+            <button
+              onClick={() => setShowContacts(true)}
+              className={`mt-2 rounded-[1rem] bg-neutral-300 px-4 shadow-lg hover:border-2 hover:border-white ${showContacts ? "pointer-events-none" : ""}`}
+            >
+              Contacts
+            </button>
+          </div>
+        </div>
+        <div className="not-mobile:block not-mobile:flex not-mobile:flex-row not-mobile:divide not-mobile:divide-x not-mobile:divide-divider-color hidden">
+          <WorkExperience />
+          <References />
         </div>
         <Modal
           showModal={showContacts}
@@ -114,8 +119,8 @@ export default function ProfilePhoto() {
           </div>
         </Modal>
       </div>
-      <div className="flex flex-col items-center p-4">
-        <div className="mb-2 text-center text-[1rem] font-bold text-white sm:text-[1.5rem]">
+      <div className="not-mobile:w-[300px] flex w-full flex-col items-center p-4">
+        <div className="mb-2 text-center text-[1.5rem] text-[1rem] font-bold text-white">
           {SelfData.name}
         </div>
         <Image
@@ -123,7 +128,7 @@ export default function ProfilePhoto() {
           width={384}
           src={SelfImage.src}
           alt="Self"
-          className="!m-0 h-[65px] w-[65px] rounded-full border-2 border-white object-cover object-top !p-0 sm:h-40 sm:w-40"
+          className="not-mobile:size-[250px] size-[150px] rounded-full border-2 border-white object-cover object-top"
         />
         <div className="mt-4 flex w-full flex-row items-center justify-center space-x-4 opacity-50">
           <a
@@ -142,8 +147,11 @@ export default function ProfilePhoto() {
             href="https://www.youtube.com/@breakdancer100/videos"
             className="rounded hover:border-2"
           >
-            <YoutubeIcon fill={"white"} />
+            <YoutubeIcon fill={"white"} className="size-[24px]" />
           </a>
+        </div>
+        <div className="not-mobile:block not-mobile:mt-4 hidden">
+          <Skills />
         </div>
       </div>
     </div>

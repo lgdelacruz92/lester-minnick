@@ -1,13 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TransitionType } from "@/lib/types";
 import { AnimatePresence, motion } from "framer-motion";
-import ReferencesList from "./references-list";
 import { referencesData } from "@/static-data/references-data";
+import dynamic from "next/dynamic";
+
+const ReferencesList = dynamic(() => import("./references-list"));
 
 export default function References() {
-  const [transition, setTransition] = useState<TransitionType>("close");
-  const [curRefId, setCurRefId] = useState<string | null>(null);
+  const [transition, setTransition] = useState<TransitionType | null>(null);
+  const [curRefId, setCurRefId] = useState<string>("1");
 
   const handleReferenceClick = (selectedReferenceId: string) => {
     switch (transition) {
@@ -29,6 +31,7 @@ export default function References() {
         }
         break;
       default:
+        setTransition("open");
         break;
     }
     setCurRefId(selectedReferenceId);
@@ -40,11 +43,11 @@ export default function References() {
   };
 
   return (
-    <div className="divide-y divide-divider-color shadow-inner">
-      <div className="w-full text-center text-important-text text-white">
+    <div className="flex-1 divide-y divide-divider-color pt-4 shadow-inner">
+      <div className="text-center text-important-text text-white">
         References
       </div>
-      <div className="w-[350px] overflow-x-scroll bg-card-background sm:w-full">
+      <div className="bg-card-background-1">
         <AnimatePresence mode="wait">
           {transition === "open" && (
             <>
@@ -62,7 +65,11 @@ export default function References() {
                   width: "100%",
                   transition: { duration: 1 },
                 }}
-                exit={{ transition: { duration: 0.5 } }}
+                exit={{
+                  opacity: 0,
+                  width: "100%",
+                  transition: { duration: 0.5 },
+                }}
                 className="w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
               >
                 {curRefId && getReview(curRefId)}
@@ -105,8 +112,10 @@ export default function References() {
                 width: "100%",
                 transition: { duration: 1 },
               }}
-              exit={{ transition: { duration: 0.5 } }}
-              className="max-w-full overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
+              exit={{
+                transition: { duration: 0.5 },
+              }}
+              className="overflow-y-scroll p-4 text-white shadow-inner shadow-lg"
             >
               {curRefId && getReview(curRefId)}
             </motion.div>

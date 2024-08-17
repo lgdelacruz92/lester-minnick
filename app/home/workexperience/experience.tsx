@@ -129,7 +129,7 @@ export default function Experience() {
             <div className="text-left text-tprimary">{d.companyName}</div>
             <div className="text-left text-tprimary">{d.duration}</div>
             <button
-              className="mt-2 rounded-full bg-tprimary px-4 text-card-background shadow hover:border hover:border-white"
+              className="text-card-background-1 mt-2 rounded-full bg-tprimary px-4 shadow hover:border hover:border-white"
               onClick={() => {
                 setActive(d);
               }}
@@ -147,7 +147,7 @@ export default function Experience() {
           >
             <motion.div
               layoutId={`card-${active.title}-${active.id}`}
-              className="relative flex flex-col divide-y divide-divider-color overflow-hidden rounded-lg bg-card-background opacity-100 shadow-2xl"
+              className="bg-card-background-1 relative flex flex-col divide-y divide-divider-color overflow-hidden rounded-lg opacity-100 shadow-2xl"
               initial={{
                 opacity: 0,
               }}
@@ -229,9 +229,9 @@ export default function Experience() {
                     duration: 0.5,
                   },
                 }}
-                className="sm:white-top-down-gradient relative grow overflow-y-scroll pt-4 text-tprimary sm:h-full"
+                className="relative grow overflow-y-scroll p-8 pt-4 text-tprimary"
               >
-                <ul className="list-disc">
+                <ul className="space-y list-disc">
                   {active.description.map((desc, i) => {
                     return <li key={`description-${i}`}>{desc}</li>;
                   })}

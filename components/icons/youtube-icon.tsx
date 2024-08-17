@@ -5,8 +5,9 @@ export default function YoutubeIcon(props: any) {
       viewBox="0 0 48 48"
       stroke={props.stroke ? props.stroke : "var(--cui-black)"}
       fill={props.fill ? props.fill : "var(--cui-black)"}
-      height={props.height ? props.height : 24}
-      width={props.width ? props.width : 24}
+      height="100%"
+      width="100%"
+      {...props}
     >
       <path
         fill="#FF3D00"

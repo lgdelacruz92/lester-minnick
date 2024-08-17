@@ -8,15 +8,21 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
+      screens: {
+        "not-mobile": "640px",
+      },
       colors: {
         primary: "#F5EDED",
         secondary: "#E2DAD6",
         background: "#7FA1C3",
         mid: "#6482AD",
         tprimary: "#F5EDED",
-        "card-background": "#363B3C",
-        // "main-background": "#143C4B",
+        "card-background-1": "#363B3C",
+        "card-background-2": "#303536",
         "main-background": "white",
         "subscript-background": "#6496FF",
         "divider-color": "rgba(255, 255, 255, 0.2)",

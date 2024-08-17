@@ -3,8 +3,9 @@ export default function CSSIcon(props: any) {
     <svg
       stroke={props.stroke ? props.stroke : "var(--cui-black)"}
       fill={props.fill ? props.fill : "var(--cui-black)"}
-      height={props.height ? props.height : 24}
-      width={props.width ? props.width : 24}
+      height="100%"
+      width="100%"
+      {...props}
       strokeWidth="0"
       version="1.1"
       viewBox="0 0 32 32"
