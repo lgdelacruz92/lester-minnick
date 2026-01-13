@@ -8,6 +8,18 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 import { ExperienceDetailsData } from "../../../lib/types";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
 
+const coleExperience: ExperienceDetailsData = {
+  title: "Senior System Engineer",
+  id: 122,
+  description: [
+    "Architecture and Design of private network cloud infrastructure. I write solutions for scalable builds and deployments of development and production systems. Using latest AI driven health and metric tools, I ensure we have scalable shipments of our metric systems to track performance and health of our products.",
+    "Ensuring our hundreds of services and classified data are secure and performing efficiently.",
+  ],
+  companyName: "Cole Engineering",
+  duration: "September 2024 - Present",
+  src: "/images/cole.png",
+}
+
 const experienceData: ExperienceDetailsData = {
   title: "Full Stack Software Engineer",
   id: 123,
@@ -18,7 +30,7 @@ const experienceData: ExperienceDetailsData = {
     "Serviced .NET application for external customers",
   ],
   companyName: "Derivco",
-  duration: "June 2023 - Present",
+  duration: "June 2023 - September 2024",
   src: "/images/derivco.jpeg",
 };
 
@@ -75,6 +87,7 @@ const experienceData5: ExperienceDetailsData = {
 };
 
 const data = [
+  coleExperience,
   experienceData,
   experienceData2,
   experienceData3,
